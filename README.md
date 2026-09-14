@@ -15,7 +15,7 @@
 [![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
 
 > 🧠 **知易智能基座 ：20+模型自由切换，知识永远留在你手里** —一个对话框调度所有模型，240+技能即插即用，四色卡片让AI真正记住你。
-> [👉 申请体验](https://vcn9bv28ym2o.feishu.cn/share/base/shrcn9wdoM01PzUqdVKY0q73rnc ) 
+
 ## 📊 统计数据
 
 - **官方技能**: 182 个（来自 awesome-agent-skills，自动爬取）
