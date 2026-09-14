@@ -306,6 +306,7 @@ python tools/skill_validator.py to-prompt skills/agent-team
 ## 🔗 相关链接
 
 - [GitHub仓库](https://github.com/YUYESHEJI/skill)
+- [官方技能源仓库快照](official-skills-source/README.md)
 - [Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills)（官方技能源仓库，6.5k+ stars）
 - [技能管理数据库](https://github.com/YUYESHEJI/skill/blob/main/docs/技能管理数据库.md)
 

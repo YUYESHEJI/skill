@@ -309,6 +309,7 @@ See the [tool documentation](tools/README.md).
 ## 🔗 Related Links
 
 - [GitHub Repository](https://github.com/YUYESHEJI/skill)
+- [Official skill source snapshot](official-skills-source/README.md)
 - [Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills) (official skill source repository, 6.5k+ stars)
 - [Skill Management Database](https://github.com/YUYESHEJI/skill/blob/main/docs/%E6%8A%80%E8%83%BD%E7%AE%A1%E7%90%86%E6%95%B0%E6%8D%AE%E5%BA%93.md)
 
