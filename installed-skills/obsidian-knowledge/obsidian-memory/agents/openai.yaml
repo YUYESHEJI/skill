@@ -1,0 +1,4 @@
+interface:
+  display_name: Obsidian Memory
+  short_description: 把 Obsidian 知识库作为跨项目长期记忆系统
+  default_prompt: 使用 Obsidian 长期记忆完成当前任务：先检索相关背景、决策和踩坑记录，再执行任务，最后总结并写回长期有价值的信息。

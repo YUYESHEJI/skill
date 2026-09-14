@@ -1,0 +1,4 @@
+interface:
+  display_name: "查找安装技能"
+  short_description: "搜索、筛选并安装合适的 agent skill"
+  default_prompt: "Use $find-skills to find an installable skill for my task."

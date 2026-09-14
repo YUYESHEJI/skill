@@ -1,0 +1,4 @@
+interface:
+  display_name: "桌宠孵化制作"
+  short_description: "制作、修复并验证 Codex 动态桌宠"
+  default_prompt: "Use $hatch-pet to create a Codex-compatible v2 pet with all standard animations and 16 look directions."

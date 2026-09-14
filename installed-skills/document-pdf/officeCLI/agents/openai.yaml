@@ -1,0 +1,4 @@
+interface:
+  display_name: "Office文档处理"
+  short_description: "创建、检查并修改 Word、Excel、PPT 文件"
+  default_prompt: "Use $officeCLI to create, inspect, or modify this Office document."

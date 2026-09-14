@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian排版写作"
+  short_description: "整理、润色并排版 Obsidian Markdown 文章"
+  default_prompt: "Use $obsidian-writing to polish and format this Obsidian note."

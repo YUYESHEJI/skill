@@ -1,0 +1,4 @@
+interface:
+  display_name: "SAP扩展创建"
+  short_description: "创建 Super Agent Party 前端或后端扩展"
+  default_prompt: "Use $sap-extension-creator to scaffold a Super Agent Party extension."
