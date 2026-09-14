@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://skill.miyucaicai.cn/</loc>
+    <loc>https://github.com/YUYESHEJI/skill</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://skill.miyucaicai.cn/skills.html</loc>
+    <loc>https://github.com/YUYESHEJI/skill/blob/main/public/skills.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://skill.miyucaicai.cn/skills-en.html</loc>
+    <loc>https://github.com/YUYESHEJI/skill/blob/main/public/skills-en.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://skill.miyucaicai.cn/local-skills.html</loc>
+    <loc>https://github.com/YUYESHEJI/skill/blob/main/public/local-skills.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skill.miyucaicai.cn/projects.html</loc>
+    <loc>https://github.com/YUYESHEJI/skill/blob/main/public/projects.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skill.miyucaicai.cn/index-en.html</loc>
+    <loc>https://github.com/YUYESHEJI/skill/blob/main/public/index-en.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skill.miyucaicai.cn/llms.txt</loc>
+    <loc>https://github.com/YUYESHEJI/skill/blob/main/public/llms.txt</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skill.miyucaicai.cn/llms-full.txt</loc>
+    <loc>https://github.com/YUYESHEJI/skill/blob/main/public/llms-full.txt</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

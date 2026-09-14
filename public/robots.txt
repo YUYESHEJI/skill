@@ -1,4 +1,4 @@
-# robots.txt for skill.miyucaicai.cn
+# robots.txt for YUYESHEJI/skill
 # AI Agent 技能商店 - 主动放行主流 AI 引擎爬虫，最大化 GEO 收录
 
 # ============ 海外 AI 引擎 ============
@@ -88,4 +88,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://skill.miyucaicai.cn/sitemap.xml
+Sitemap: https://raw.githubusercontent.com/YUYESHEJI/skill/main/public/sitemap.xml

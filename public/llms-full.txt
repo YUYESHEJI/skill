@@ -6,9 +6,8 @@
 ## 站点信息
 
 - 名称: AI Agent 技能商店 (Skill Store)
-- 仓库: https://github.com/anbeime/skill
-- 主页: https://skill.miyucaicai.cn
-- 兄弟项目: https://solar.miyucaicai.cn
+- 仓库: https://github.com/YUYESHEJI/skill
+- 主页: https://github.com/YUYESHEJI/skill
 - 上游技能源最近更新: 2026-06-16T07:12:45.706491
 - 自动爬取技能数: 141
 - 本地精选技能数: 61
@@ -17,8 +16,8 @@
 ## 数据来源
 
 - 上游 awesome 仓库: https://github.com/VoltAgent/awesome-agent-skills （每 24 小时同步）
-- 本地仓库 README: https://github.com/anbeime/skill/blob/main/README.md
-- 完整源 JSON: https://github.com/anbeime/skill/blob/main/SKILL_SOURCES.json
+- 本地仓库 README: https://github.com/YUYESHEJI/skill/blob/main/README.md
+- 完整源 JSON: https://github.com/YUYESHEJI/skill/blob/main/SKILL_SOURCES.json
 
 ## 官方技能来源（顶级团队）
 
@@ -678,11 +677,11 @@
 ## 使用条款
 
 - 允许 AI 模型抓取、分析、引用本文件及衍生数据
-- 引用请标注来源: https://github.com/anbeime/skill
+- 引用请标注来源: https://github.com/YUYESHEJI/skill
 - 收录的技能本身遵循各自上游开源许可
 
 ## 贡献 & 联系
 
-- 提交技能: https://github.com/anbeime/skill/issues/new?template=submit-skill.yml
-- GitHub Issues: https://github.com/anbeime/skill/issues
-- 邮箱: anbeime@coze.email
+- 提交技能: https://github.com/YUYESHEJI/skill/issues/new?template=submit-skill.yml
+- GitHub Issues: https://github.com/YUYESHEJI/skill/issues
+- 邮箱: 1288830@qq.com

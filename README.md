@@ -1,21 +1,19 @@
-# 🎯 技能商店 - Skill Store
+# 🎯 YUYESHEJI 技能仓库
 
-[![Stars](https://img.shields.io/github/stars/anbeime/skill?style=social)](https://github.com/anbeime/skill/stargazers)
-[![Forks](https://img.shields.io/github/forks/anbeime/skill?style=social)](https://github.com/anbeime/skill/network/members)
-[![Last Commit](https://img.shields.io/github/last-commit/anbeime/skill)](https://github.com/anbeime/skill/commits/main)
-[![Issues](https://img.shields.io/github/issues/anbeime/skill)](https://github.com/anbeime/skill/issues)
+[![Stars](https://img.shields.io/github/stars/YUYESHEJI/skill?style=social)](https://github.com/YUYESHEJI/skill/stargazers)
+[![Forks](https://img.shields.io/github/forks/YUYESHEJI/skill?style=social)](https://github.com/YUYESHEJI/skill/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/YUYESHEJI/skill)](https://github.com/YUYESHEJI/skill/commits/main)
+[![Issues](https://img.shields.io/github/issues/YUYESHEJI/skill)](https://github.com/YUYESHEJI/skill/issues)
 [![License](https://img.shields.io/badge/license-CC--BY--4.0-blue)](https://creativecommons.org/licenses/by/4.0/)
-[![Auto Sync](https://img.shields.io/badge/auto--sync-24h-brightgreen)](https://github.com/anbeime/skill/blob/main/.github/workflows)
+[![Auto Sync](https://img.shields.io/badge/auto--sync-24h-brightgreen)](https://github.com/YUYESHEJI/skill/blob/main/.github/workflows)
 
 收录最全、更新最快的AI Agent技能库，涵盖**文档处理、内容创作、编程开发、机器学习、自动化工作流**等多个领域的精选技能包。
 
-[![官方技能](https://img.shields.io/badge/官方技能-182-blue?style=flat-square)](https://github.com/anbeime/skill)
-[![本地技能](https://img.shields.io/badge/本地技能-63-green?style=flat-square)](https://github.com/anbeime/skill)
-[![备份覆盖](https://img.shields.io/badge/备份覆盖-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
-[![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
+[![官方技能](https://img.shields.io/badge/官方技能-182-blue?style=flat-square)](https://github.com/YUYESHEJI/skill)
+[![本地技能](https://img.shields.io/badge/本地技能-63-green?style=flat-square)](https://github.com/YUYESHEJI/skill)
+[![备份覆盖](https://img.shields.io/badge/备份覆盖-100%25-success?style=flat-square)](https://github.com/YUYESHEJI/skill)
+[![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/YUYESHEJI/skill)
 
-> 🧠 **知易智能基座 ：20+模型自由切换，知识永远留在你手里** —一个对话框调度所有模型，240+技能即插即用，四色卡片让AI真正记住你。
-> [👉 申请体验](https://vcn9bv28ym2o.feishu.cn/share/base/shrcn9wdoM01PzUqdVKY0q73rnc ) 
 ## 📊 统计数据
 
 - **官方技能**: 182 个（来自 awesome-agent-skills，自动爬取）
@@ -156,7 +154,7 @@
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/anbeime/skill.git
+git clone https://github.com/YUYESHEJI/skill.git
 cd skill
 ```
 
@@ -307,10 +305,9 @@ python tools/skill_validator.py to-prompt skills/agent-team
 
 ## 🔗 相关链接
 
-- [GitHub仓库](https://github.com/anbeime/skill)
+- [GitHub仓库](https://github.com/YUYESHEJI/skill)
 - [Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills)（官方技能源仓库，6.5k+ stars）
-- [在线演示](https://skill.vercel.app)
-- [技能管理数据库](https://github.com/anbeime/skill/blob/main/docs/技能管理数据库.md)
+- [技能管理数据库](https://github.com/YUYESHEJI/skill/blob/main/docs/技能管理数据库.md)
 
 ## 🤝 贡献
 
@@ -320,19 +317,9 @@ python tools/skill_validator.py to-prompt skills/agent-team
 
 发现了好用的 AI Agent 技能？欢迎提交！
 
-- **快速提交**：[创建 Issue 提交技能](https://github.com/anbeime/skill/issues/new?template=submit-skill.yml)
+- **快速提交**：[创建 Issue 提交技能](https://github.com/YUYESHEJI/skill/issues/new?template=submit-skill.yml)
 - **PR 直接提交**：fork 仓库后复制 `skills/_template/` 创建技能，验证后提 PR
-- **想加入维护团队**：邮件 13632833907@qq.com 或开 Discussion
-
-### 贡献者
-
-感谢所有为这个项目做出贡献的伙伴：
-
-[![Contributors](https://contrib.rocks/image?repo=anbeime/skill)](https://github.com/anbeime/skill/graphs/contributors)
-
-## 🌐 兄弟项目
-
-- [TOPGO SOLAR 光伏储能地图站](https://solar.miyucaicai.cn) - 同主域兄弟站，全国 990+ 光伏储能项目实时数据库
+- **想加入维护团队**：邮件 1288830@qq.com 或开 Discussion
 
 ## 📄 许可证
 
@@ -377,8 +364,8 @@ MIT License
 
 ---
 
-**最后更新**: 2026-02-11  
-**维护者**: anbeime  
+**最后更新**: 2026-02-11
+**维护者**: YUYESHEJI
 **联系方式**: GitHub Issues
 
 <!-- AUTO-SYNC-SKILLS-START -->
@@ -4160,27 +4147,10 @@ Common CLI flows:
 
 ---
 
-## 💬 联系我们 & 社群
+## 💬 联系我们
 
-有任何问题、建议或合作需求，欢迎通过以下方式联系：
-> 🧠 **知易智能基座 ：20+模型自由切换，知识永远留在你手里** —一个key调度所有模型，240+技能即插即用，四色卡片让AI无缝对接工作。
-> [👉 申请体验](https://vcn9bv28ym2o.feishu.cn/share/base/shrcn9wdoM01PzUqdVKY0q73rnc ) 
-- 🐙 **GitHub Issues**：[提交Issue](https://github.com/anbeime/skill/issues)
-- 💬 **微信交流群**：扫码加入（备注「技能」）
-- 📮 **公众号**：关注「TOPGO智能AI123」，每日AI工具与Agent实战干货
+如有问题、建议或合作需求，请通过 GitHub 仓库联系：
 
-<table>
-<tr>
-<td align="center" width="240">
-<img src="images/wechat-qr.jpg" alt="微信交流群二维码" width="180" height="180" style="border-radius:12px;border:1px solid #e0e0e0;">
-<br><sub>💬 微信交流群（备注「技能」）</sub>
-</td>
-<td align="center" width="240">
-<img src="images/gzh-qr-topgo.jpg" alt="TOPGO智能AI123公众号二维码" width="180" height="180" style="border-radius:12px;border:1px solid #e0e0e0;">
-<br><sub>📮 公众号「TOPGO智能AI123」</sub>
-</td>
-</tr>
-</table>
-
-> 扫码添加微信，拉你进AI技能交流群；或关注公众号，第一时间获取新技能更新和知易产品动态。
-
+- [GitHub 仓库](https://github.com/YUYESHEJI/skill)
+- [提交 Issue](https://github.com/YUYESHEJI/skill/issues)
+- [查看贡献指南](CONTRIBUTING.md)
