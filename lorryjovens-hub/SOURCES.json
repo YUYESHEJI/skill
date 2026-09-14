@@ -532,7 +532,10 @@
       "url": "https://github.com/lorryjovens-hub/claude-desktop-app",
       "default_branch": "main",
       "size_kb": 22921,
-      "upstream": null
+      "upstream": null,
+      "imported": true,
+      "imported_path": "lorryjovens-hub/claude-desktop-app",
+      "imported_commit": "8cbd7b790b5c7e9487b93ba14458e0d803e31d26"
     },
     {
       "name": "claw-code",
@@ -1027,5 +1030,15 @@
       "claude-desktop-tauri/user"
     ],
     "note": "Regenerable dependency and build-output directories were removed after shallow cloning."
-  }
+  },
+  "additional_imports": [
+    {
+      "name": "claude-desktop-app",
+      "url": "https://github.com/lorryjovens-hub/claude-desktop-app",
+      "branch": "main",
+      "commit": "8cbd7b790b5c7e9487b93ba14458e0d803e31d26",
+      "imported_path": "lorryjovens-hub/claude-desktop-app",
+      "note": "Fork imported separately at user request."
+    }
+  ]
 }

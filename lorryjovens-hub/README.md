@@ -10,3 +10,5 @@ copied, because they duplicate their upstream projects.
 - Fork repositories recorded only: 83
 
 Regenerable dependency and build-output directories were removed after import; source, configuration, documentation, and necessary assets remain.
+
+- Additional imported fork: `claude-desktop-app`.
