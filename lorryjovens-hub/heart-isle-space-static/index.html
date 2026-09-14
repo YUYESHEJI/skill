@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>心屿空间 Heart Isle Space | 深圳成年人共学圈</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- React & ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!-- Babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- GSAP + Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --color-warm-white: #FAF9F6;
+      --color-warm-gray: #F5F3EF;
+      --color-stone: #E8E4DE;
+      --color-ochre: #B8956B;
+      --color-ochre-light: #D4AE88;
+      --color-deep-green: #4A5D54;
+      --color-deep-green-light: #5D7268;
+      --color-charcoal: #2C2C2C;
+      --color-muted: #7A7A7A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-warm-white);
+      color: var(--color-charcoal);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    .font-serif-sc { font-family: 'Noto Serif SC', serif; }
+
+    /* ─── Custom Cursor ─── */
+    .cursor-dot, .cursor-outline {
+      position: fixed;
+      top: 0; left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 99999;
+      pointer-events: none;
+      will-change: transform;
+    }
+    .cursor-dot {
+      width: 6px; height: 6px;
+      background-color: var(--color-ochre);
+      transition: width .2s, height .2s, background .2s;
+    }
+    .cursor-outline {
+      width: 38px; height: 38px;
+      border: 1.5px solid var(--color-ochre);
+      opacity: 0.6;
+      transition: width .4s cubic-bezier(.23,1,.32,1),
+                  height .4s cubic-bezier(.23,1,.32,1),
+                  opacity .4s, background .4s;
+    }
+    body:has(a:hover) .cursor-outline,
+    body:has(button:hover) .cursor-outline {
+      width: 72px; height: 72px;
+      background: rgba(184,149,107,.12);
+      border-color: transparent;
+      opacity: 1;
+    }
+
+    /* ─── Grain Overlay ─── */
+    .grain-overlay {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9990;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    /* ─── Glass Card ─── */
+    .glass-card {
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,.35);
+      box-shadow: 0 8px 32px rgba(31,38,135,.06);
+    }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--color-warm-gray); }
+    ::-webkit-scrollbar-thumb { background: var(--color-ochre); border-radius: 3px; }
+
+    /* ─── Keyframes ─── */
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-18px); }
+    }
+    @keyframes breathe {
+      0%,100% { transform: scale(1);    opacity: .7; }
+      50%      { transform: scale(1.06); opacity: 1; }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(1);   opacity: .6; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-float   { animation: float   6s ease-in-out infinite; }
+    .animate-breathe { animation: breathe 4s ease-in-out infinite; }
+    .animate-rotate  { animation: rotate-slow 20s linear infinite; }
+
+    /* ─── Liquid Button ─── */
+    .liquid-btn {
+      position: relative; overflow: hidden; z-index: 1;
+      transition: color .5s;
+    }
+    .liquid-btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--color-deep-green);
+      transform: scaleX(0); transform-origin: right;
+      transition: transform .6s cubic-bezier(.23,1,.32,1);
+      z-index: -1;
+    }
+    .liquid-btn:hover::before { transform: scaleX(1); transform-origin: left; }
+    .liquid-btn:hover { color: white; }
+
+    /* ─── Tilt Card ─── */
+    .tilt-card { transform-style: preserve-3d; }
+    .tilt-inner { transform: translateZ(40px); }
+
+    /* ─── Marquee ─── */
+    .marquee-track {
+      display: flex;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    /* ─── Text clip reveal ─── */
+    .clip-reveal { clip-path: inset(0 100% 0 0); }
+    .clip-reveal.revealed { clip-path: inset(0 0% 0 0); transition: clip-path 1.1s cubic-bezier(.77,0,.175,1); }
+
+    /* ─── Shimmer text ─── */
+    .shimmer-text {
+      background: linear-gradient(90deg, var(--color-ochre) 0%, #f5d5a8 40%, var(--color-ochre) 60%, #c9a478 100%);
+      background-size: 200%;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* ─── Magnetic Button ─── */
+    .mag-btn {
+      transition: transform .35s cubic-bezier(.23,1,.32,1),
+                  box-shadow .35s cubic-bezier(.23,1,.32,1);
+    }
+
+    /* ─── Section reveal ─── */
+    .sr { opacity: 0; transform: translateY(36px); }
+    .sr.visible { opacity: 1; transform: translateY(0); transition: opacity .9s, transform .9s cubic-bezier(.16,1,.3,1); }
+
+    /* ─── Nav ─── */
+    .nav-scrolled {
+      background: rgba(250,249,246,.88) !important;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 20px rgba(0,0,0,.06);
+    }
+
+    /* ─── Hero particles ─── */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    /* ─── Stats counter ─── */
+    .stat-num {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ─── Card hover glow ─── */
+    .card-glow {
+      position: absolute; inset: -2px; border-radius: inherit;
+      background: linear-gradient(135deg, var(--color-ochre), var(--color-deep-green));
+      opacity: 0; z-index: -1; filter: blur(12px);
+      transition: opacity .4s;
+    }
+    .tilt-card:hover .card-glow { opacity: .22; }
+
+    /* ─── Progress bar ─── */
+    .progress-line {
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-ochre), var(--color-deep-green));
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform .5s ease;
+    }
+
+    /* ─── Active nav dot ─── */
+    .nav-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--color-ochre);
+      display: inline-block; margin-right: 6px;
+      opacity: 0; transition: opacity .3s;
+    }
+    .nav-link.active .nav-dot { opacity: 1; }
+
+    /* ─── Form ─── */
+    .form-input {
+      width: 100%; padding: 14px 18px;
+      border-radius: 14px;
+      border: 1.5px solid #e5e5e5;
+      background: rgba(250,249,246,.8);
+      outline: none; font-size: 15px;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .form-input:focus {
+      border-color: var(--color-ochre);
+      box-shadow: 0 0 0 4px rgba(184,149,107,.12);
+    }
+    .form-input::placeholder { color: #bbb; }
+
+    /* ─── Tooltip ─── */
+    [data-tip]:hover::after {
+      content: attr(data-tip);
+      position: absolute; bottom: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-charcoal); color: #fff;
+      font-size: 12px; padding: 4px 10px; border-radius: 6px;
+      white-space: nowrap; pointer-events: none; z-index: 100;
+    }
+
+    /* ─── Loading screen ─── */
+    #loading-screen {
+      position: fixed; inset: 0; z-index: 100000;
+      background: var(--color-warm-white);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 20px;
+      transition: opacity .6s, transform .6s;
+    }
+    #loading-screen.done {
+      opacity: 0; pointer-events: none; transform: translateY(-20px);
+    }
+    .loading-ring {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 2px solid var(--color-stone);
+      border-top-color: var(--color-ochre);
+      animation: rotate-slow 1s linear infinite;
+    }
+
+    /* ─── Testimonial cards ─── */
+    .testimonial-card {
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+      border: 1px solid rgba(184,149,107,.1);
+      transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,.1);
+    }
+
+    /* ─── FAQ accordion ─── */
+    .faq-item {
+      border-bottom: 1px solid #eee;
+    }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .45s cubic-bezier(.16,1,.3,1), padding .45s;
+    }
+    .faq-answer.open { max-height: 400px; padding-bottom: 18px; }
+
+    /* ─── Floating badge ─── */
+    @keyframes badgeFloat {
+      0%,100% { transform: translateY(0) rotate(-2deg); }
+      50%      { transform: translateY(-8px) rotate(2deg); }
+    }
+    .floating-badge { animation: badgeFloat 5s ease-in-out infinite; }
+
+    /* pulse ring */
+    .pulse-ring::after {
+      content: '';
+      position: absolute; inset: -8px; border-radius: 50%;
+      border: 2px solid var(--color-ochre);
+      animation: pulse-ring 2s ease-out infinite;
+    }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 768px) {
+      body { cursor: auto; }
+      .cursor-dot, .cursor-outline { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-ring"></div>
+    <div class="font-serif-sc text-xl text-[#B8956B] font-bold tracking-widest">心屿空间</div>
+    <div class="text-sm text-gray-400 tracking-widest">Heart Isle Space</div>
+  </div>
+
+  <div id="root"></div>
+  <div class="grain-overlay"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useCallback, useMemo } = React;
+
+    // ─────────────────────────────────────────────
+    //  DATA
+    // ─────────────────────────────────────────────
+    const themes = [
+      {
+        id: 1,
+        title: "AI时代，什么样的人不会被替代？",
+        subtitle: "重新找到真正值得你去练的能力",
+        duration: "90分钟", price: "49.9–69.9元", icon: "brain",
+        color: "from-amber-50 to-orange-50", accent: "#F59E0B",
+        tag: "热门",
+        takeaways: ["看清AI时代稀缺的人类能力","识别自己易被替代与值得强化的部分","带走《未来90天不可替代力行动卡》"]
+      },
+      {
+        id: 2,
+        title: "高压不内耗：深圳人的情绪松弛练习局",
+        subtitle: "学会从持续消耗里慢慢回来",
+        duration: "90分钟", price: "59.9–79.9元", icon: "heart",
+        color: "from-emerald-50 to-teal-50", accent: "#10B981",
+        tag: "疗愈",
+        takeaways: ["识别最常见的内耗模式","学习3组日常松弛练习","带走《我的松弛清单》"]
+      },
+      {
+        id: 3,
+        title: "不会表达的人，正在失去机会",
+        subtitle: "学会把自己清楚地说出来",
+        duration: "120分钟", price: "69.9–99元", icon: "mic",
+        color: "from-blue-50 to-indigo-50", accent: "#6366F1",
+        tag: "实用",
+        takeaways: ["掌握易上手的表达结构","现场重构30秒自我介绍","带走《升级版表达脚本》"]
+      },
+      {
+        id: 4,
+        title: "我到底想过怎样的人生？",
+        subtitle: "在忙碌和正确之外，重新靠近自己",
+        duration: "120分钟", price: "69.9–99元", icon: "compass",
+        color: "from-purple-50 to-pink-50", accent: "#8B5CF6",
+        tag: "探索",
+        takeaways: ["看见生活中充电与耗竭部分","区分'我想要'与'别人期待'","带走《人生方向卡》"]
+      },
+      {
+        id: 5,
+        title: "关系里的边界感：停止讨好",
+        subtitle: "建立高质量关系",
+        duration: "90分钟", price: "59.9–79.9元", icon: "shield",
+        color: "from-rose-50 to-red-50", accent: "#F43F5E",
+        tag: "关系",
+        takeaways: ["识别最易耗尽的关系模式","写下可落地的边界表达句","带走《我的边界宣言卡》"]
+      },
+      {
+        id: 6,
+        title: "审美觉醒夜：找回被工作耗掉的感受力",
+        subtitle: "重新拥有感受世界的能力",
+        duration: "90分钟", price: "59.9–89.9元", icon: "eye",
+        color: "from-yellow-50 to-amber-50", accent: "#F59E0B",
+        tag: "感受",
+        takeaways: ["重新感受颜色、声音、气味与空间","找回'最近一次被打动'的能力","带走《生活感重建设计单》"]
+      }
+    ];
+
+    const testimonials = [
+      { name: "晓玲", role: "产品经理 · 3年", avatar: "晓", color: "#B8956B",
+        text: "第一次在深圳找到一个不焦虑的学习圈。90分钟真的比我自己独自反思三个月都有效。" },
+      { name: "Marcus", role: "设计师 · 7年", avatar: "M", color: "#4A5D54",
+        text: "边界感那场课彻底改变了我对人际关系的认知。主理人真的很懂如何引导真实对话。" },
+      { name: "林悦", role: "教师 · 5年", avatar: "林", color: "#8B5CF6",
+        text: "空间很美、气氛很好、人也很真实。我终于体验到什么叫'不是鸡血的学习'。" },
+      { name: "大海", role: "工程师 · 8年", avatar: "海", color: "#10B981",
+        text: "AI时代那场给了我很大的触动，思维框架清晰，带走的卡片我用了整整两个月。" },
+    ];
+
+    const faqs = [
+      { q: "活动多长时间？场次安排是怎样的？",
+        a: "大多数体验课为90–120分钟。场次安排在工作日晚间或周末，每月会提前在社群发布本月场次，可灵活选择适合自己的时段。" },
+      { q: "参与者需要什么基础？",
+        a: "完全不需要任何基础！心屿的每个主题都是为普通成年人设计的，讲究从自己的真实困惑出发，而不是传授理论体系。" },
+      { q: "小班制意味着什么？",
+        a: "每场控制在12–20人，目的是保证每个人都能被看见、被听见，主理人也有足够的精力与每位参与者进行真实互动，而不是大班的单向输出。" },
+      { q: "一次体验课能带来什么具体改变？",
+        a: "每次体验结束，你会带走一张可立即落地的工具卡（行动卡/设计单/宣言卡）。90天内如果使用得当，你会感受到真实的行为或认知变化。" },
+      { q: "地点在哪？如何找到你们？",
+        a: "心屿空间位于深圳市内，具体地址会在预约成功后由主理人私信告知。目前以线下为主，提供温暖、有设计感的物理空间体验。" },
+    ];
+
+    const stats = [
+      { num: 320, suffix: "+", label: "累计参与者" },
+      { num: 98, suffix: "%", label: "满意度" },
+      { num: 6, suffix: "", label: "精选主题" },
+      { num: 12, suffix: "–20", label: "人小班制" },
+    ];
+
+    // ─────────────────────────────────────────────
+    //  HOOK: useScrollReveal
+    // ─────────────────────────────────────────────
+    function useScrollReveal(ref, threshold = 0.15) {
+      const [visible, setVisible] = useState(false);
+      useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const obs = new IntersectionObserver(
+          ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+          { threshold }
+        );
+        obs.observe(el);
+        return () => obs.disconnect();
+      }, []);
+      return visible;
+    }
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: CustomCursor
+    // ─────────────────────────────────────────────
+    const CustomCursor = () => {
+      const dot = useRef(null);
+      const ring = useRef(null);
+      useEffect(() => {
+        const move = (e) => {
+          gsap.to(dot.current,  { x: e.clientX, y: e.clientY, duration: 0.08 });
+          gsap.to(ring.current, { x: e.clientX, y: e.clientY, duration: 0.45, ease: "power2.out" });
+        };
+        window.addEventListener("mousemove", move);
+        return () => window.removeEventListener("mousemove", move);
+      }, []);
+      return (
+        <>
+          <div ref={dot}  className="cursor-dot hidden md:block" />
+          <div ref={ring} className="cursor-outline hidden md:block" />
+        </>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: Navigation
+    // ─────────────────────────────────────────────
+    const Navigation = () => {
+      const [scrolled, setScrolled] = useState(false);
+      const [active, setActive] = useState("hero");
+      const [mobileOpen, setMobileOpen] = useState(false);
+      const progress = useRef(null);
+
+      useEffect(() => {
+        const onScroll = () => {
+          setScrolled(window.scrollY > 60);
+          const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+          if (progress.current) progress.current.style.transform = `scaleX(${pct})`;
+          // active section
+          ["hero","themes","process","space","about"].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= 120 && rect.bottom > 120) setActive(id);
+            }
+          });
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+      }, []);
+
+      const links = [
+        { id: "themes", label: "主题探索" },
+        { id: "process", label: "体验流程" },
+        { id: "space", label: "空间美学" },
+        { id: "about", label: "预约体验" },
+      ];
+
+      return (
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "nav-scrolled" : "py-2 bg-transparent"}`}>
+          <div ref={progress} className="progress-line absolute bottom-0 left-0 right-0" />
+          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            {/* Logo */}
+            <a href="#hero" className="flex items-center gap-3 group">
+              <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-[#B8956B] to-[#4A5D54] flex items-center justify-center text-white font-bold text-lg font-serif-sc shadow-lg group-hover:shadow-[#B8956B]/40 transition-shadow duration-300 pulse-ring">
+                心
+              </div>
+              <div>
+                <div className="font-serif-sc font-bold text-lg leading-none text-[#2C2C2C]">心屿空间</div>
+                <div className="text-[10px] text-[#B8956B] tracking-[0.15em] uppercase">Heart Isle Space</div>
+              </div>
+            </a>
+
+            {/* Desktop links */}
+            <div className="hidden md:flex items-center gap-8">
+              {links.map(l => (
+                <a key={l.id} href={`#${l.id}`}
+                   className={`nav-link text-sm font-medium transition-colors relative group ${active === l.id ? "text-[#B8956B] active" : "text-gray-600 hover:text-[#B8956B]"}`}>
+                  <span className="nav-dot" />
+                  {l.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#B8956B] group-hover:w-full transition-all duration-300" />
+                </a>
+              ))}
+              <a href="#about"
+                 className="liquid-btn px-6 py-2.5 border-2 border-[#4A5D54] text-[#4A5D54] rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:shadow-[#4A5D54]/20">
+                立即预约
+              </a>
+            </div>
+
+            {/* Mobile hamburger */}
+            <button onClick={() => setMobileOpen(!mobileOpen)}
+                    className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5">
+              <span className={`w-6 h-0.5 bg-[#2C2C2C] transition-all ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`w-6 h-0.5 bg-[#2C2C2C] transition-all ${mobileOpen ? "opacity-0" : ""}`} />
+              <span className={`w-6 h-0.5 bg-[#2C2C2C] transition-all ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            </button>
+          </div>
+
+          {/* Mobile menu */}
+          {mobileOpen && (
+            <div className="md:hidden glass-card border-t border-gray-100 px-6 py-6 flex flex-col gap-5">
+              {links.map(l => (
+                <a key={l.id} href={`#${l.id}`}
+                   onClick={() => setMobileOpen(false)}
+                   className="text-base font-medium text-gray-700 hover:text-[#B8956B] transition-colors">{l.label}</a>
+              ))}
+              <a href="#about" onClick={() => setMobileOpen(false)}
+                 className="text-center py-3 bg-[#4A5D54] text-white rounded-xl font-semibold">立即预约</a>
+            </div>
+          )}
+        </nav>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: Hero
+    // ─────────────────────────────────────────────
+    const Hero = () => {
+      const heroRef = useRef(null);
+      const subtitleRef = useRef(null);
+      const badgeRef = useRef(null);
+      const circleRef = useRef(null);
+
+      useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+        const ctx = gsap.context(() => {
+          // chars
+          gsap.fromTo(".hero-char",
+            { y: 110, opacity: 0 },
+            { y: 0, opacity: 1, stagger: 0.045, duration: 1.1, ease: "power4.out", delay: 0.3 }
+          );
+          // subtitle
+          gsap.fromTo(subtitleRef.current,
+            { y: 28, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, delay: 1.1, ease: "power3.out" }
+          );
+          // badge
+          gsap.fromTo(badgeRef.current,
+            { scale: 0.8, opacity: 0 },
+            { scale: 1, opacity: 1, duration: .8, delay: .1, ease: "back.out(1.7)" }
+          );
+          // parallax bg circles
+          gsap.to(".hero-bg-blob", {
+            yPercent: 25, ease: "none",
+            scrollTrigger: { trigger: heroRef.current, start: "top top", end: "bottom top", scrub: true }
+          });
+          // stats counter
+          gsap.fromTo(".hero-stat",
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, stagger: 0.12, duration: .7, delay: 1.5, ease: "power3.out" }
+          );
+        }, heroRef);
+
+        return () => ctx.revert();
+      }, []);
+
+      const line1 = "给在高压城市里";
+      const line2 = "仍想认真活的人";
+
+      return (
+        <section id="hero" ref={heroRef}
+                 className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-10">
+          {/* BG blobs */}
+          <div className="hero-bg-blob absolute top-1/3 -left-20 w-[520px] h-[520px] rounded-full bg-[#B8956B] opacity-[0.07] blur-3xl animate-breathe" />
+          <div className="hero-bg-blob absolute bottom-1/4 -right-20 w-[400px] h-[400px] rounded-full bg-[#4A5D54] opacity-[0.07] blur-3xl animate-breathe" style={{animationDelay:"2.5s"}} />
+          <div className="absolute top-1/4 right-1/3 w-40 h-40 rounded-full bg-[#B8956B] opacity-[0.04] blur-2xl animate-breathe" style={{animationDelay:"1.2s"}} />
+
+          {/* Rotating deco ring */}
+          <div className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[380px] h-[380px] opacity-10 hidden lg:block">
+            <svg className="animate-rotate w-full h-full" viewBox="0 0 200 200" fill="none">
+              <circle cx="100" cy="100" r="96" stroke="#B8956B" strokeWidth="0.8" strokeDasharray="6 8"/>
+              <circle cx="100" cy="100" r="72" stroke="#4A5D54" strokeWidth="0.6" strokeDasharray="3 12"/>
+              <circle cx="100" cy="100" r="48" stroke="#B8956B" strokeWidth="0.4" strokeDasharray="8 5"/>
+            </svg>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            {/* Badge */}
+            <div ref={badgeRef} className="mb-8">
+              <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#B8956B]/40 text-[#B8956B] text-xs tracking-[0.15em] uppercase bg-white/60 backdrop-blur-sm shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#B8956B] animate-pulse" />
+                深圳线下 · 成年人共学圈 · 小班制
+              </span>
+            </div>
+
+            {/* Title */}
+            <h1 className="font-serif-sc text-5xl md:text-7xl lg:text-8xl font-bold text-[#2C2C2C] mb-6 leading-tight">
+              <div className="overflow-hidden mb-2">
+                {line1.split("").map((c,i) => (
+                  <span key={i} className="hero-char inline-block">{c}</span>
+                ))}
+              </div>
+              <div className="overflow-hidden">
+                {line2.split("").map((c,i) => (
+                  <span key={i} className="hero-char inline-block shimmer-text">{c}</span>
+                ))}
+              </div>
+            </h1>
+
+            {/* Subtitle */}
+            <p ref={subtitleRef}
+               className="text-lg md:text-xl text-gray-500 max-w-2xl mb-10 font-light leading-relaxed">
+              重新找回清醒、松弛、表达力、关系感和生活的方向感。<br/>
+              不是鸡血打卡群，而是真实对话与高质量同伴的<strong className="text-[#4A5D54] font-semibold">共学空间</strong>。
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-20">
+              <a href="#themes"
+                 className="mag-btn group px-8 py-4 bg-[#4A5D54] text-white rounded-full font-semibold overflow-hidden relative transition-all hover:shadow-2xl hover:shadow-[#4A5D54]/30 hover:-translate-y-0.5 flex items-center gap-2">
+                <span>探索6个成长主题</span>
+                <i data-lucide="arrow-right" className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                <div className="absolute inset-0 bg-[#B8956B] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 -z-10 rounded-full" />
+              </a>
+              <a href="#space"
+                 className="mag-btn px-8 py-4 border-2 border-gray-200 text-gray-600 rounded-full font-medium hover:border-[#4A5D54] hover:text-[#4A5D54] transition-all hover:-translate-y-0.5 flex items-center gap-2">
+                <i data-lucide="image" className="w-4 h-4" />
+                <span>探索空间美学</span>
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl">
+              {stats.map((s, i) => (
+                <div key={i} className="hero-stat text-center md:text-left">
+                  <div className="stat-num text-3xl font-bold text-[#2C2C2C] font-serif-sc">
+                    {s.num}<span className="text-[#B8956B]">{s.suffix}</span>
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1 tracking-wide">{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Scroll hint */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 animate-float">
+            <span className="text-[10px] tracking-[0.2em] uppercase text-gray-500">Scroll</span>
+            <div className="w-px h-10 bg-gradient-to-b from-[#B8956B] to-transparent" />
+          </div>
+        </section>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: Marquee
+    // ─────────────────────────────────────────────
+    const Marquee = () => {
+      const words = ["真实对话", "情绪松弛", "边界感", "表达力", "AI时代", "感受力", "方向感", "共学圈", "成年人成长", "小班制", "深圳"];
+      const items = [...words, ...words];
+      return (
+        <div className="py-8 bg-[#4A5D54] overflow-hidden">
+          <div className="marquee-track">
+            {items.map((w, i) => (
+              <span key={i} className="inline-flex items-center gap-4 px-6 text-white/60 text-sm tracking-widest uppercase font-medium whitespace-nowrap">
+                <span className="w-1 h-1 rounded-full bg-[#B8956B] inline-block" />
+                {w}
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: ThemeCard (3D tilt)
+    // ─────────────────────────────────────────────
+    const ThemeCard = ({ theme, index }) => {
+      const cardRef = useRef(null);
+      const [tilt, setTilt] = useState({ rx: 0, ry: 0 });
+      const [hovered, setHovered] = useState(false);
+
+      const onMove = (e) => {
+        const r = cardRef.current.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        setTilt({ rx: (y - r.height/2) / 22, ry: (r.width/2 - x) / 22 });
+      };
+      const onLeave = () => { setTilt({ rx: 0, ry: 0 }); setHovered(false); };
+
+      useEffect(() => { lucide.createIcons(); }, []);
+
+      return (
+        <div ref={cardRef}
+             className="tilt-card relative group cursor-pointer"
+             onMouseMove={e => { onMove(e); setHovered(true); }}
+             onMouseLeave={onLeave}
+             style={{ transform: `perspective(900px) rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`,
+                      transition: hovered ? "transform 0.1s" : "transform 0.6s cubic-bezier(.23,1,.32,1)" }}>
+          <div className="card-glow" />
+          <div className={`relative h-full glass-card rounded-3xl p-8 flex flex-col justify-between border border-white/50 shadow-lg transition-shadow duration-500 ${hovered ? "shadow-2xl" : ""} bg-gradient-to-br ${theme.color}`}>
+            <div>
+              {/* header */}
+              <div className="flex justify-between items-start mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-white/80 flex items-center justify-center shadow-sm"
+                     style={{ color: theme.accent }}>
+                  <i data-lucide={theme.icon} className="w-7 h-7" />
+                </div>
+                <div className="flex flex-col items-end gap-2">
+                  <span className="text-xs font-bold text-white px-3 py-1 rounded-full"
+                        style={{ background: theme.accent }}>{theme.tag}</span>
+                  <span className="text-xs text-gray-400 bg-white/60 px-3 py-1 rounded-full">
+                    主题 {String(index+1).padStart(2,"0")}
+                  </span>
+                </div>
+              </div>
+              <h3 className="font-serif-sc text-xl font-bold text-[#2C2C2C] mb-2 leading-snug">{theme.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed mb-5">{theme.subtitle}</p>
+              <div className="space-y-2.5">
+                <p className="text-xs font-bold text-[#B8956B] uppercase tracking-wider">你会带走</p>
+                {theme.takeaways.map((t, i) => (
+                  <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                    <i data-lucide="check-circle" className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
+                    <span>{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="pt-5 mt-5 border-t border-gray-200/60 flex justify-between items-center">
+              <div>
+                <div className="text-xs text-gray-400">体验价</div>
+                <div className="text-lg font-bold text-[#4A5D54]">{theme.price}</div>
+              </div>
+              <div className="flex items-center gap-1.5 text-sm text-gray-500 bg-white/60 px-3 py-1.5 rounded-full">
+                <i data-lucide="clock" className="w-3.5 h-3.5" />
+                <span>{theme.duration}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: ThemesSection
+    // ─────────────────────────────────────────────
+    const ThemesSection = () => {
+      const ref = useRef(null);
+      const visible = useScrollReveal(ref);
+      useEffect(() => { lucide.createIcons(); }, []);
+
+      return (
+        <section id="themes" className="py-32 bg-[#FAF9F6]">
+          <div className="max-w-7xl mx-auto px-6">
+            <div ref={ref} className={`sr ${visible ? "visible" : ""} max-w-3xl mb-16`}>
+              <span className="text-[#B8956B] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">6个成长主题</span>
+              <h2 className="font-serif-sc text-4xl md:text-5xl font-bold text-[#2C2C2C] mb-6 leading-tight">
+                小而深的体验课<br/>
+                <span className="text-gray-300">建立到场与口碑的第一站</span>
+              </h2>
+              <p className="text-gray-500 text-lg leading-relaxed">
+                先用高质感主题 + 低门槛体验活动建立第一批到场与口碑，<br/>
+                每一场都是与真实困惑相遇的机会。
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {themes.map((t, i) => <ThemeCard key={t.id} theme={t} index={i} />)}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: ProcessTimeline
+    // ─────────────────────────────────────────────
+    const ProcessTimeline = () => {
+      const ref = useRef(null);
+      const lineRef = useRef(null);
+
+      const steps = [
+        { num:"01", title:"真实对话", desc:"不是单向授课，而是基于真实困惑的共学对谈", icon:"message-circle" },
+        { num:"02", title:"轻量体验", desc:"90–120分钟沉浸体验，不占用完整周末", icon:"zap" },
+        { num:"03", title:"实用工具", desc:"每次带走一张可落地的行动卡或清单", icon:"clipboard-list" },
+        { num:"04", title:"同伴联结", desc:"12–20人小班，遇见同频的高质量成长伙伴", icon:"users" },
+      ];
+
+      useEffect(() => {
+        const ctx = gsap.context(() => {
+          gsap.fromTo(".step-item",
+            { x: -40, opacity: 0 },
+            { x: 0, opacity: 1, stagger: .18, duration: .9, ease: "power3.out",
+              scrollTrigger: { trigger: ref.current, start: "top 70%", toggleActions: "play none none reverse" } }
+          );
+          gsap.fromTo(lineRef.current,
+            { scaleY: 0, transformOrigin: "top" },
+            { scaleY: 1, duration: 1.5, ease: "power2.out",
+              scrollTrigger: { trigger: ref.current, start: "top 70%", toggleActions: "play none none reverse" } }
+          );
+        }, ref);
+        lucide.createIcons();
+        return () => ctx.revert();
+      }, []);
+
+      return (
+        <section id="process" className="py-32 bg-[#4A5D54] relative overflow-hidden">
+          {/* BG pattern */}
+          <div className="absolute inset-0 opacity-[0.04]"
+               style={{backgroundImage:"radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize:"32px 32px"}} />
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div>
+                <span className="text-[#B8956B] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">心屿体验</span>
+                <h2 className="font-serif-sc text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                  这不是一场普通活动，<br/>
+                  而是一次认真和自己<br/>
+                  <span className="text-[#B8956B]">相处的机会。</span>
+                </h2>
+                <p className="text-white/60 text-lg leading-relaxed mb-10">
+                  我们用真实对话、轻体验课程、共学活动和高质量同伴，陪你成为更有力量的人。
+                </p>
+                <a href="#about"
+                   className="inline-flex items-center gap-2 px-8 py-4 bg-[#B8956B] hover:bg-[#a08055] text-white rounded-full font-semibold transition-all hover:shadow-xl hover:shadow-[#B8956B]/30 hover:-translate-y-0.5">
+                  查看近期活动
+                  <i data-lucide="arrow-right" className="w-4 h-4" />
+                </a>
+              </div>
+
+              <div ref={ref} className="relative">
+                {/* Vertical line */}
+                <div className="absolute left-8 top-8 bottom-8 w-px bg-white/10 overflow-hidden">
+                  <div ref={lineRef} className="w-full bg-gradient-to-b from-[#B8956B] to-transparent h-full" />
+                </div>
+
+                <div className="space-y-6 pl-4">
+                  {steps.map((s, i) => (
+                    <div key={i} className="step-item flex gap-6 items-start group pl-4">
+                      <div className="relative flex-shrink-0 w-16 h-16 rounded-2xl bg-white/10 backdrop-blur border border-white/20
+                                      flex items-center justify-center text-xl font-bold text-[#B8956B]
+                                      group-hover:bg-[#B8956B] group-hover:text-white group-hover:border-transparent
+                                      transition-all duration-400 z-10">
+                        <i data-lucide={s.icon} className="w-6 h-6" />
+                        <span className="absolute -top-2 -right-2 text-xs bg-white/20 text-white/60 rounded-full w-5 h-5 flex items-center justify-center font-mono text-[10px]">{s.num}</span>
+                      </div>
+                      <div className="pt-3">
+                        <h3 className="text-white text-xl font-bold mb-1.5 group-hover:text-[#B8956B] transition-colors">{s.title}</h3>
+                        <p className="text-white/50 text-sm leading-relaxed">{s.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: SpaceShowcase
+    // ─────────────────────────────────────────────
+    const SpaceShowcase = () => {
+      const [active, setActive] = useState(0);
+      const ref = useRef(null);
+      const visible = useScrollReveal(ref, 0.1);
+
+      const spaces = [
+        { name:"成人成长课堂", desc:"环形座位设计，促进深度对话与真实联结",
+          bg:"from-[#E8E4DE] to-[#D4CFC7]", symbol:"成长" },
+        { name:"少儿创意教室", desc:"温暖木质与流动曲线，激发孩子的创造直觉",
+          bg:"from-[#F0E6DC] to-[#E5DCD0]", symbol:"创意" },
+        { name:"休闲交流区", desc:"全景落地窗，让自然光线贯穿每一次对话",
+          bg:"from-[#E8EFEC] to-[#D8E8E4]", symbol:"交流" },
+        { name:"疗愈茶憩区", desc:"静谧水景与原木气息，引导内心回到平静",
+          bg:"from-[#D4E0DC] to-[#C5D4CE]", symbol:"疗愈" },
+      ];
+
+      return (
+        <section id="space" className="py-32 bg-[#F5F3EF]">
+          <div className="max-w-7xl mx-auto px-6">
+            <div ref={ref} className={`sr ${visible ? "visible" : ""} text-center mb-16`}>
+              <span className="text-[#B8956B] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">空间美学</span>
+              <h2 className="font-serif-sc text-4xl md:text-5xl font-bold text-[#2C2C2C] mb-4 leading-tight">
+                每一处细节，都是疗愈的开始
+              </h2>
+              <p className="text-gray-500 text-lg max-w-xl mx-auto">
+                从材质到灯光，从气味到座椅角度，心屿的每个细节都经过深思熟虑的设计。
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-5 gap-6 items-start">
+              {/* Main display */}
+              <div className="md:col-span-3 relative h-[480px] rounded-3xl overflow-hidden group">
+                {spaces.map((s, i) => (
+                  <div key={i}
+                       className={`absolute inset-0 bg-gradient-to-br ${s.bg} transition-opacity duration-700 ${active===i ? "opacity-100" : "opacity-0"}`}>
+                    <div className="absolute inset-0 flex items-center justify-center font-serif-sc text-8xl font-bold text-[#2C2C2C]/10 select-none">
+                      {s.symbol}
+                    </div>
+                    {/* floating badge */}
+                    <div className="floating-badge absolute top-6 right-6 glass-card px-4 py-2 rounded-xl text-sm font-semibold text-[#4A5D54]">
+                      ✦ {s.name}
+                    </div>
+                  </div>
+                ))}
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="glass-card rounded-2xl p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="font-serif-sc text-2xl font-bold text-[#2C2C2C] mb-1">{spaces[active].name}</h3>
+                    <p className="text-gray-600 text-sm">{spaces[active].desc}</p>
+                    <div className="flex gap-2 mt-4">
+                      {spaces.map((_, i) => (
+                        <button key={i} onClick={() => setActive(i)}
+                                className={`h-1 rounded-full transition-all ${active===i ? "w-8 bg-[#B8956B]" : "w-2 bg-gray-300"}`} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Thumbnails */}
+              <div className="md:col-span-2 grid grid-cols-2 gap-4">
+                {spaces.map((s, i) => (
+                  <button key={i} onClick={() => setActive(i)}
+                          className={`relative h-52 rounded-2xl overflow-hidden transition-all duration-400 group/thumb
+                            ${active===i ? "ring-2 ring-[#B8956B] shadow-lg scale-[1.03]" : "opacity-70 hover:opacity-100 hover:scale-[1.02]"}`}>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${s.bg}`}>
+                      <div className="absolute inset-0 flex items-center justify-center font-serif-sc text-4xl font-bold text-[#2C2C2C]/20">
+                        {s.symbol}
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4 text-white text-left">
+                      <span className="text-[10px] opacity-60 block">0{i+1}</span>
+                      <span className="font-serif-sc font-bold text-sm">{s.name}</span>
+                    </div>
+                    {active===i && (
+                      <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-[#B8956B] flex items-center justify-center">
+                        <i data-lucide="check" className="w-3 h-3 text-white" />
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: Testimonials
+    // ─────────────────────────────────────────────
+    const Testimonials = () => {
+      const ref = useRef(null);
+      const visible = useScrollReveal(ref, 0.1);
+      useEffect(() => { lucide.createIcons(); }, []);
+
+      return (
+        <section className="py-32 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div ref={ref} className={`sr ${visible ? "visible" : ""} text-center mb-16`}>
+              <span className="text-[#B8956B] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">真实声音</span>
+              <h2 className="font-serif-sc text-4xl md:text-5xl font-bold text-[#2C2C2C] mb-4">他们这样说</h2>
+              <p className="text-gray-500 text-lg">每一条反馈，都是真实改变的证明</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {testimonials.map((t, i) => (
+                <div key={i} className="testimonial-card" style={{animationDelay:`${i*0.12}s`}}>
+                  <i data-lucide="quote" className="w-8 h-8 mb-4 opacity-20" style={{ color: t.color }} />
+                  <p className="text-gray-700 text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                         style={{ background: t.color }}>
+                      {t.avatar}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-sm text-[#2C2C2C]">{t.name}</div>
+                      <div className="text-xs text-gray-400">{t.role}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: FAQ
+    // ─────────────────────────────────────────────
+    const FAQ = () => {
+      const [open, setOpen] = useState(null);
+      const ref = useRef(null);
+      const visible = useScrollReveal(ref);
+
+      return (
+        <section className="py-24 bg-[#F5F3EF]">
+          <div className="max-w-3xl mx-auto px-6">
+            <div ref={ref} className={`sr ${visible ? "visible" : ""} text-center mb-12`}>
+              <span className="text-[#B8956B] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">常见问题</span>
+              <h2 className="font-serif-sc text-3xl md:text-4xl font-bold text-[#2C2C2C]">你可能想知道的</h2>
+            </div>
+            <div className="space-y-1">
+              {faqs.map((f, i) => (
+                <div key={i} className="faq-item">
+                  <button className="w-full flex justify-between items-center py-5 text-left group"
+                          onClick={() => setOpen(open === i ? null : i)}>
+                    <span className={`font-semibold text-base transition-colors ${open===i ? "text-[#B8956B]" : "text-[#2C2C2C] group-hover:text-[#B8956B]"}`}>
+                      {f.q}
+                    </span>
+                    <span className={`ml-4 flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300
+                      ${open===i ? "bg-[#B8956B] border-[#B8956B] rotate-45" : "border-gray-300 group-hover:border-[#B8956B]"}`}>
+                      <span className={`text-xl leading-none font-light ${open===i ? "text-white" : "text-gray-400"}`}>+</span>
+                    </span>
+                  </button>
+                  <div className={`faq-answer text-gray-500 text-sm leading-relaxed ${open===i ? "open" : ""}`}>
+                    {f.a}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: BookingSection
+    // ─────────────────────────────────────────────
+    const BookingSection = () => {
+      const [form, setForm] = useState({ name:"", contact:"", theme:"", message:"" });
+      const [status, setStatus] = useState("idle"); // idle | loading | success
+      const ref = useRef(null);
+      const visible = useScrollReveal(ref);
+
+      const upd = (k, v) => setForm(f => ({ ...f, [k]: v }));
+
+      const submit = (e) => {
+        e.preventDefault();
+        setStatus("loading");
+        setTimeout(() => setStatus("success"), 1400);
+        setTimeout(() => { setStatus("idle"); setForm({ name:"", contact:"", theme:"", message:"" }); }, 4000);
+      };
+
+      return (
+        <section id="about" className="py-32 bg-white">
+          <div className="max-w-5xl mx-auto px-6">
+            <div ref={ref} className={`sr ${visible ? "visible" : ""}`}>
+              <div className="grid md:grid-cols-2 gap-16 items-start">
+                {/* Left copy */}
+                <div className="pt-4">
+                  <span className="text-[#B8956B] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">开始体验</span>
+                  <h2 className="font-serif-sc text-4xl font-bold text-[#2C2C2C] mb-6 leading-tight">
+                    预约你的<br/>第一次心屿体验
+                  </h2>
+                  <p className="text-gray-500 leading-relaxed mb-8">
+                    小班体验，名额有限。填写基本信息后，主理人何静会在24小时内与你确认具体时间与地点。
+                  </p>
+                  <div className="space-y-4">
+                    {[
+                      { icon:"map-pin", text:"深圳市内 · 具体地址预约后告知" },
+                      { icon:"users", text:"12–20人小班，确保真实交流" },
+                      { icon:"shield-check", text:"不满意全额退款，承诺品质" },
+                      { icon:"calendar", text:"工作日晚间 & 周末，灵活选择" },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 text-sm text-gray-600">
+                        <div className="w-8 h-8 rounded-lg bg-[#F5F3EF] flex items-center justify-center">
+                          <i data-lucide={item.icon} className="w-4 h-4 text-[#B8956B]" />
+                        </div>
+                        {item.text}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Form */}
+                <div className="glass-card rounded-[2rem] p-8 shadow-xl border border-gray-100">
+                  {status === "success" ? (
+                    <div className="text-center py-12">
+                      <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="check-circle" className="w-10 h-10 text-green-500" />
+                      </div>
+                      <h3 className="font-serif-sc text-2xl font-bold text-[#2C2C2C] mb-2">提交成功！</h3>
+                      <p className="text-gray-500 text-sm">主理人何静会在24小时内联系你，期待与你相遇。</p>
+                    </div>
+                  ) : (
+                    <form onSubmit={submit} className="space-y-5">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">姓名</label>
+                          <input className="form-input" placeholder="如何称呼您" value={form.name} onChange={e=>upd("name",e.target.value)} required />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">联系方式</label>
+                          <input className="form-input" placeholder="微信或手机" value={form.contact} onChange={e=>upd("contact",e.target.value)} required />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">感兴趣的主题</label>
+                        <select className="form-input" value={form.theme} onChange={e=>upd("theme",e.target.value)} required>
+                          <option value="">请选择主题</option>
+                          {themes.map(t => <option key={t.id} value={t.id}>{t.title.substring(0,18)}…</option>)}
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">留言（可选）</label>
+                        <textarea className="form-input resize-none" rows="3"
+                                  placeholder="简单描述你的困惑或期待…"
+                                  value={form.message} onChange={e=>upd("message",e.target.value)} />
+                      </div>
+                      <button type="submit"
+                              className={`w-full py-4 rounded-xl font-semibold text-white transition-all duration-300
+                                ${status==="loading" ? "bg-gray-400" : "bg-[#4A5D54] hover:bg-[#3d4d46] hover:shadow-xl hover:shadow-[#4A5D54]/20 hover:-translate-y-0.5"}`}
+                              disabled={status==="loading"}>
+                        {status==="loading" ? (
+                          <span className="flex items-center justify-center gap-2">
+                            <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                            提交中…
+                          </span>
+                        ) : "提交预约申请"}
+                      </button>
+                      <p className="text-center text-xs text-gray-400">提交即表示同意 · 主理人：何静</p>
+                    </form>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  COMPONENT: Footer
+    // ─────────────────────────────────────────────
+    const Footer = () => {
+      useEffect(() => { lucide.createIcons(); }, []);
+      return (
+        <footer className="bg-[#2C2C2C] text-white py-16">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid md:grid-cols-3 gap-12 mb-12">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#B8956B] flex items-center justify-center font-serif-sc font-bold">心</div>
+                  <div>
+                    <div className="font-serif-sc font-bold text-lg">心屿空间</div>
+                    <div className="text-xs text-gray-400 tracking-widest">Heart Isle Space</div>
+                  </div>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  在高压城市里，认真活，认真成长。<br/>
+                  为成年人提供真实对话与共学的空间。
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-300">主题探索</h4>
+                <ul className="space-y-2">
+                  {themes.slice(0,4).map(t => (
+                    <li key={t.id}>
+                      <a href="#themes" className="text-gray-400 text-sm hover:text-[#B8956B] transition-colors">{t.title.substring(0,16)}…</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-300">联系我们</h4>
+                <div className="space-y-3">
+                  {[
+                    { icon:"map-pin", text:"深圳市 · 具体地点预约后告知" },
+                    { icon:"user",    text:"主理人：何静" },
+                    { icon:"globe",   text:"「给爱教育」创始人" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-gray-400 text-sm">
+                      <i data-lucide={item.icon} className="w-4 h-4 text-[#B8956B] flex-shrink-0" />
+                      {item.text}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+              <span>© 2026 心屿空间 Heart Isle Space. All rights reserved.</span>
+              <span>在高压城市里，认真活，认真成长。</span>
+            </div>
+          </div>
+        </footer>
+      );
+    };
+
+    // ─────────────────────────────────────────────
+    //  ROOT APP
+    // ─────────────────────────────────────────────
+    const App = () => {
+      useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+        lucide.createIcons();
+
+        // Hide loading screen
+        const ls = document.getElementById("loading-screen");
+        setTimeout(() => { ls.classList.add("done"); }, 800);
+      }, []);
+
+      return (
+        <div className="relative">
+          <CustomCursor />
+          <Navigation />
+          <Hero />
+          <Marquee />
+          <ThemesSection />
+          <ProcessTimeline />
+          <SpaceShowcase />
+          <Testimonials />
+          <FAQ />
+          <BookingSection />
+          <Footer />
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

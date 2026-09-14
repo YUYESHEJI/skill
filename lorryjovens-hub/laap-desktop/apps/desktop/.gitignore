@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-electron
+.vite
+*.log
+.tmp-userdata-debug
+test-results
+tmp-chat-selftest.mjs
+tmp-parallel-selftest.mjs
+
+# LAAP 认知桥运行时状态（本地生成，不入库）
+resources/laap/state/
+resources/laap/logs/

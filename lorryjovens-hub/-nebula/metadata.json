@@ -1,0 +1,8 @@
+{
+  "name": "Nebula Beats - 3D Audio Visualizer",
+  "description": "A high-performance 3D music visualization platform featuring 100,000 particles, gesture control, and microphone input.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

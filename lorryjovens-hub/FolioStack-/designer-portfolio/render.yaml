@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: foliostack-portfolio
+    env: static
+    rootDir: designer-portfolio
+    buildCommand: ""
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://fearless-ferret-291.convex.cloud/api/$1
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-XSS-Protection
+        value: 1; mode=block
+    envVars:
+      - key: CONVEX_URL
+        value: https://fearless-ferret-291.convex.cloud
+      - key: CONVEX_SITE_URL
+        value: https://fearless-ferret-291.convex.site

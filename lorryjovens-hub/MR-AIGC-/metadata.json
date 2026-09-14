@@ -1,0 +1,7 @@
+{
+  "name": "Copy of MetaVerseX Studio",
+  "description": "A next-generation Mixed Reality and AIGC Open World game creation platform powered by Gemini 3 Pro.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

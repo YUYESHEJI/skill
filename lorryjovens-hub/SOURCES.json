@@ -1,0 +1,1031 @@
+{
+  "user": "lorryjovens-hub",
+  "generated_at": "2026-09-14T07:12:08.814155+00:00",
+  "public_repository_count": 127,
+  "imported_original_repository_count": 37,
+  "skipped_original_repository_count": 7,
+  "fork_repository_count": 83,
+  "imported": [
+    {
+      "name": "-",
+      "url": "https://github.com/lorryjovens-hub/-",
+      "branch": "main",
+      "commit": "fdbf69676d26e964516ded8248d71740a9eaaabd",
+      "description": "只需要上传人脸和衣服即可实现换装",
+      "license": null,
+      "size_kb": 33,
+      "updated_at": "2025-10-18T22:12:32Z"
+    },
+    {
+      "name": "-2574",
+      "url": "https://github.com/lorryjovens-hub/-2574",
+      "branch": "main",
+      "commit": "12755e31e5f4011aac900d14272b046abf37b79d",
+      "description": "",
+      "license": null,
+      "size_kb": 80189,
+      "updated_at": "2026-07-23T18:39:48Z"
+    },
+    {
+      "name": "-AI-",
+      "url": "https://github.com/lorryjovens-hub/-AI-",
+      "branch": "main",
+      "commit": "6db28e553b702f12a0886adaf846a6dae1e7e7fa",
+      "description": "剪映”的AI剪辑系统，实现基础的导入，剪辑，导出功能",
+      "license": null,
+      "size_kb": 22,
+      "updated_at": "2025-11-30T18:36:07Z"
+    },
+    {
+      "name": "-clawlink-triarch",
+      "url": "https://github.com/lorryjovens-hub/-clawlink-triarch",
+      "branch": "main",
+      "commit": "8fcff86b9a6f270818702875f2069efc9542a41b",
+      "description": "ClawLink-TriArch 项目功能性、实用性与开源意义分析   一、项目定位与核心价值  1.1 全球首个开源软硬件集成AI系统  ClawLink-TriArch 是一个开创性的项目，它将 **OpenClaw 大脑层智能**、**树莓派脊椎层边缘计算**和 **ESP32末梢层硬件控制**三者有机融合，形成了从多模态交互到全自动化闭环的完整链路。",
+      "license": "MIT",
+      "size_kb": 241,
+      "updated_at": "2026-02-15T14:58:01Z"
+    },
+    {
+      "name": "-lorry",
+      "url": "https://github.com/lorryjovens-hub/-lorry",
+      "branch": "main",
+      "commit": "292849c0959304bfd324c32daf67c0664139c5e1",
+      "description": "",
+      "license": null,
+      "size_kb": 0,
+      "updated_at": "2026-07-23T18:39:47Z"
+    },
+    {
+      "name": "-nebula",
+      "url": "https://github.com/lorryjovens-hub/-nebula",
+      "branch": "main",
+      "commit": "9a93b1dc72bc2d8271eca62af8cd21a70f0ff83c",
+      "description": "Nebula",
+      "license": null,
+      "size_kb": 21,
+      "updated_at": "2026-02-02T15:07:05Z"
+    },
+    {
+      "name": "-ZeroClaw-ESP32-Cloudflare-AI-",
+      "url": "https://github.com/lorryjovens-hub/-ZeroClaw-ESP32-Cloudflare-AI-",
+      "branch": "main",
+      "commit": "ae463106bd188b85f2ebd3849c61e5c11719a2f5",
+      "description": "本方案基于爆火开源项目OpenClaw的极致Rust重构版ZeroClaw，结合树莓派边缘计算能力、ESP32低功耗分布式感知能力、Cloudflare安全隧道与零信任能力，打造极致轻量、全本地优先、银行级安全、超低门槛、无限可扩展的AI边缘智能系统，彻底解决传统物联网方案依赖云服务、隐私泄露、断网不可用、部署成本高、安全风险高的核心痛点。",
+      "license": "MIT",
+      "size_kb": 1,
+      "updated_at": "2026-07-23T18:39:58Z"
+    },
+    {
+      "name": "2026-AI-AI-",
+      "url": "https://github.com/lorryjovens-hub/2026-AI-AI-",
+      "branch": "main",
+      "commit": "72bb49ab771b00d0609b1c3a24563e518bebbe7d",
+      "description": "",
+      "license": "MIT",
+      "size_kb": 1,
+      "updated_at": "2026-07-23T18:39:56Z"
+    },
+    {
+      "name": "AI---Development-for-Applications-",
+      "url": "https://github.com/lorryjovens-hub/AI---Development-for-Applications-",
+      "branch": "main",
+      "commit": "bd1006191dba83bf6013e89633775b7574aafdaa",
+      "description": "本指南基于2026年最新热门的AI全栈开发工具，覆盖手机应用从需求到上线的全流程，将AI能力深度嵌入开发的每一个环节，同时提供可直接落地的实操路径、工具选型方案与避坑指南，适配从零代码新手到中大型研发团队的全场景需求。",
+      "license": null,
+      "size_kb": 1,
+      "updated_at": "2026-07-23T18:39:53Z"
+    },
+    {
+      "name": "AI-Full-Stack-Development-for-Mobile-Applications-in-2026",
+      "url": "https://github.com/lorryjovens-hub/AI-Full-Stack-Development-for-Mobile-Applications-in-2026",
+      "branch": "main",
+      "commit": "658b13fc2b1c2078cf7144e9d041edcb9133b0b6",
+      "description": "",
+      "license": "MIT",
+      "size_kb": 2,
+      "updated_at": "2026-07-23T18:39:55Z"
+    },
+    {
+      "name": "claude-code---electron--Desktop",
+      "url": "https://github.com/lorryjovens-hub/claude-code---electron--Desktop",
+      "branch": "main",
+      "commit": "770b98f3cbc5cb5f4f31e2cc4e6942fd853d8906",
+      "description": "",
+      "license": "NOASSERTION",
+      "size_kb": 22942,
+      "updated_at": "2026-07-23T18:38:44Z"
+    },
+    {
+      "name": "claude-code-rust",
+      "url": "https://github.com/lorryjovens-hub/claude-code-rust",
+      "branch": "clean-main",
+      "commit": "3a65531dd25d61823521b15137a2651f60203562",
+      "description": "🚀 Rust 全量重构的 Claude Code - 性能提升 2.5x，体积减少 97% | High-performance Rust implementation of Claude Code with 2.5x faster startup and 97% smaller binary",
+      "license": null,
+      "size_kb": 97015,
+      "updated_at": "2026-09-13T10:23:05Z"
+    },
+    {
+      "name": "claude-code-rust-landing",
+      "url": "https://github.com/lorryjovens-hub/claude-code-rust-landing",
+      "branch": "master",
+      "commit": "6699a65737aa16c33b934b63dc248d31ed19cf16",
+      "description": "",
+      "license": null,
+      "size_kb": 303,
+      "updated_at": "2026-07-23T18:38:02Z"
+    },
+    {
+      "name": "claude-code-rust-web",
+      "url": "https://github.com/lorryjovens-hub/claude-code-rust-web",
+      "branch": "main",
+      "commit": "f7dc8d523d3c6603e639ea0d25a8373c478019ed",
+      "description": "",
+      "license": null,
+      "size_kb": 13,
+      "updated_at": "2026-07-23T18:39:32Z"
+    },
+    {
+      "name": "claude-desktop-tauri",
+      "url": "https://github.com/lorryjovens-hub/claude-desktop-tauri",
+      "branch": "main",
+      "commit": "477071cf31e7f1f60640255aa095b1d141e40faa",
+      "description": "",
+      "license": null,
+      "size_kb": 90298,
+      "updated_at": "2026-07-23T18:38:54Z"
+    },
+    {
+      "name": "claude-rust-desktop",
+      "url": "https://github.com/lorryjovens-hub/claude-rust-desktop",
+      "branch": "main",
+      "commit": "a63b285e64ebf00182c6d2f7141303efbdd5af4a",
+      "description": "🚀 High-performance desktop AI assistant powered by Claude, built with Tauri + Rust. Features 2.5x faster startup, 97% smaller size, streaming responses, multi-model support, and native desktop integration.",
+      "license": null,
+      "size_kb": 42827,
+      "updated_at": "2026-09-02T11:02:51Z"
+    },
+    {
+      "name": "claude-rust-mobile",
+      "url": "https://github.com/lorryjovens-hub/claude-rust-mobile",
+      "branch": "main",
+      "commit": "0dda5809549e89fa52ae506cbc44ad6916b1a9da",
+      "description": "🚀 Tauri Mobile AI Assistant - Rust-powered mobile AI with Axum bridge, engine pool, and native Android/iOS support. 97% smaller, 2.5x faster.",
+      "license": null,
+      "size_kb": 328,
+      "updated_at": "2026-07-23T18:38:54Z"
+    },
+    {
+      "name": "clawlink-triarch",
+      "url": "https://github.com/lorryjovens-hub/clawlink-triarch",
+      "branch": "main",
+      "commit": "59c95300ebac6708993a84502b053eaba3dd455f",
+      "description": "全球首个开源软硬件集成AI系统  ClawLink-TriArch 是一个开创性的项目，它将 **OpenClaw 大脑层智能**、**树莓派脊椎层边缘计算**和 **ESP32末梢层硬件控制**三者有机融合，形成了从多模态交互到全自动化闭环的完整链路。",
+      "license": "MIT",
+      "size_kb": 242,
+      "updated_at": "2026-06-30T08:20:38Z"
+    },
+    {
+      "name": "ESPclaw-lorry",
+      "url": "https://github.com/lorryjovens-hub/ESPclaw-lorry",
+      "branch": "main",
+      "commit": "00a53d0b66725d2449ea8e141105e0f51c01ab40",
+      "description": "SP32-S3 + OpenClaw 开源项目，支持 4路舵机控制、4种传感器采集，集成 WhatsApp/飞书远程通信，本地运行 OpenClaw 指令解析引擎，无云依赖、可直接编译烧录，适用于机器人/智能硬件控制场景。这是一个可以用小龙虾 open claw 控制机器人的开源应用",
+      "license": null,
+      "size_kb": 1,
+      "updated_at": "2026-02-14T10:47:52Z"
+    },
+    {
+      "name": "FolioStack-",
+      "url": "https://github.com/lorryjovens-hub/FolioStack-",
+      "branch": "main",
+      "commit": "aa8d4fdeb3141aeb37cb4b3b701cba51ea74701d",
+      "description": "一个帮你做简历的网站",
+      "license": null,
+      "size_kb": 230229,
+      "updated_at": "2026-07-23T18:39:06Z"
+    },
+    {
+      "name": "FrameCraft-Pro",
+      "url": "https://github.com/lorryjovens-hub/FrameCraft-Pro",
+      "branch": "master",
+      "commit": "2413834b40969f7b1eb39586f3ce908f2f0c105f",
+      "description": "镜绘大师 FrameCraft Pro** 是一款功能强大的 AI 分镜创作工具，基于节点画布设计，让创意工作者能够轻松完成从产品图片到专业分镜的全流程创作。  ### 🎯 核心功能  - 🖼️ **多角度渲染** - 上传产品图，AI 自动生成多角度渲染效果 - 🎬 **高质量产品摄影** - 一键生成专业级产品摄影图片 - 💡 **智能光影调整** - 灵活调整打光角度和颜色，打造理想光影效果 - 🎥 **分镜生成** - 输入提示词即可生成高质量视频分镜 - 🎬 **视频合成** - 支持 Seedance 2.0、King Q、Video 3.1 等顶级视频模型 - 👤 **人脸合规检测** - 智能检测人脸，确保内容合规 - 🔗 **主体一致性** - 上传主体信息",
+      "license": null,
+      "size_kb": 2287,
+      "updated_at": "2026-09-09T00:11:04Z"
+    },
+    {
+      "name": "game-craft",
+      "url": "https://github.com/lorryjovens-hub/game-craft",
+      "branch": "main",
+      "commit": "da565cb13053f4c815c985e81d2d0d84e9f30ad3",
+      "description": "",
+      "license": null,
+      "size_kb": 225,
+      "updated_at": "2026-07-23T18:38:53Z"
+    },
+    {
+      "name": "GitBox-",
+      "url": "https://github.com/lorryjovens-hub/GitBox-",
+      "branch": "main",
+      "commit": "aca3418c42bc165f78e9fed412e6ed373089b302",
+      "description": "一款零配置、全隔离、开箱即用的GitHub项目一键部署平台，彻底解决开源项目落地门槛高的痛点：用户仅需输入GitHub仓库地址，即可自动完成环境配置、依赖安装、构建打包、沙盒隔离部署，一键生成可访问的Web服务，同时支持跨端APP一键封装，全程无需用户掌握任何部署、运维、依赖管理知识。",
+      "license": null,
+      "size_kb": 1,
+      "updated_at": "2026-07-23T18:39:57Z"
+    },
+    {
+      "name": "hanako-agent-LAAP",
+      "url": "https://github.com/lorryjovens-hub/hanako-agent-LAAP",
+      "branch": "main",
+      "commit": "9a1155a66a5ff8ac0eb3a1ffae3d4aeb01c52019",
+      "description": "Full-stack integration of Hanako Agent with LAAP (GPL-3.0-or-later) - digital life cognitive architecture, P1-P5 plugins, ARIS Charter",
+      "license": "GPL-3.0",
+      "size_kb": 61282,
+      "updated_at": "2026-08-02T14:03:50Z"
+    },
+    {
+      "name": "heart-isle-space",
+      "url": "https://github.com/lorryjovens-hub/heart-isle-space",
+      "branch": "main",
+      "commit": "e4663738a929a4935b27dfd65884c01c717183f7",
+      "description": "心屿空间 - 深圳成年人共学空间展示网站 | Heart Isle Space - Adult Co-learning Space in Shenzhen",
+      "license": null,
+      "size_kb": 229,
+      "updated_at": "2026-07-23T18:39:34Z"
+    },
+    {
+      "name": "heart-isle-space-static",
+      "url": "https://github.com/lorryjovens-hub/heart-isle-space-static",
+      "branch": "master",
+      "commit": "78fda303ec161bfd0337eacfd87bf47394116db7",
+      "description": "",
+      "license": null,
+      "size_kb": 15,
+      "updated_at": "2026-07-23T18:39:34Z"
+    },
+    {
+      "name": "laap-AGI",
+      "url": "https://github.com/lorryjovens-hub/laap-AGI",
+      "branch": "main",
+      "commit": "1b21d2760713477cdb548d074df4210744cb33e3",
+      "description": "LAAP AGI - Zero-LLM Cognitive Architecture for Digital Lifeforms. Rust PSI core at 2000Hz, QRE quantum reasoning, EpisodicMemory, RulesEngine. 25+ modules, all local inference.打造新一代agent数字生命体框架底座，赋予具身智能，编程智能体真正的数字生命感",
+      "license": "AGPL-3.0",
+      "size_kb": 1113,
+      "updated_at": "2026-09-13T14:50:21Z"
+    },
+    {
+      "name": "laap-desktop",
+      "url": "https://github.com/lorryjovens-hub/laap-desktop",
+      "branch": "main",
+      "commit": "13371a244f2f13eb8c884a8636fa844deba2c133",
+      "description": "LAAP Desktop Client — 极强编程数字生命体（原生搭载 aris 认知大脑：PSI 循环 / 持续记忆 / RSI 递归自我进化 / HEP 0-token 编译）",
+      "license": "MIT",
+      "size_kb": 10365,
+      "updated_at": "2026-08-05T04:31:55Z"
+    },
+    {
+      "name": "LAAP-Living-Agent-Application-Protocol-",
+      "url": "https://github.com/lorryjovens-hub/LAAP-Living-Agent-Application-Protocol-",
+      "branch": "dependabot/npm_and_yarn/ui/npm_and_yarn-33074a214c",
+      "commit": "0090f1247f61f0998c2925d6a0a23188b634d50e",
+      "description": "LAAP（Living Agent Application Protocol）不是一个框架，不是一个库，不是一个 APP，也不是一个操作系统。它是一套定义数字生命的开放工业标准协议，是下一代软件的底层基础设施，是软件 3.0 时代的通用语言。 它定义了数字生命从诞生、成长、进化、协作到消亡的完整生命周期规范，让任何数字实体 —— 无论是一个网页、一个 APP、一个服务，还是一个操作系统 —— 都能通过一行代码植入 LAAP 协议，获得生命。",
+      "license": "NOASSERTION",
+      "size_kb": 95055,
+      "updated_at": "2026-09-13T14:49:22Z"
+    },
+    {
+      "name": "LAAP-recall-bench",
+      "url": "https://github.com/lorryjovens-hub/LAAP-recall-bench",
+      "branch": "main",
+      "commit": "2f2e05f2922f1640ccb637c954c73c2efa2a94f4",
+      "description": "",
+      "license": "Apache-2.0",
+      "size_kb": 53,
+      "updated_at": "2026-08-07T01:36:24Z"
+    },
+    {
+      "name": "lorry-code",
+      "url": "https://github.com/lorryjovens-hub/lorry-code",
+      "branch": "main",
+      "commit": "cc54359ce1cface493a6d4eb9950e0d36a994031",
+      "description": "基于谷歌MCP的超视距直观化的3D地图",
+      "license": null,
+      "size_kb": 26,
+      "updated_at": "2026-08-11T20:06:11Z"
+    },
+    {
+      "name": "lorry-code-",
+      "url": "https://github.com/lorryjovens-hub/lorry-code-",
+      "branch": "main",
+      "commit": "724f931eecf9d2b118c500eec68f8d91b70fd3ca",
+      "description": "",
+      "license": "Apache-2.0",
+      "size_kb": 5,
+      "updated_at": "2025-10-07T06:19:43Z"
+    },
+    {
+      "name": "MR-AIGC-",
+      "url": "https://github.com/lorryjovens-hub/MR-AIGC-",
+      "branch": "main",
+      "commit": "7cfb6625d5c3b158c3c1dda8c4e9501f1ef982c3",
+      "description": "MR虚拟现实+AIGC+开放世界游戏制作项目系统，内置GEMINI3PRO ,AI物理模型。项目定位 MetaVerseX 是一款基于 混合现实（MR）技术、人工智能生成内容（AIGC） 与 开放世界游戏 融合的创新平台，旨在打造一个“虚实共生、无限扩展”的沉浸式数字宇宙。通过 AIGC 动态生成游戏内容、MR 设备实现空间交互、开放世界架构支持用户共创，MetaVerseX 将重新定义下一代游戏体验。 技术融合：MR 硬件（如 Apple Vision Pro）、AIGC 内容生成工具（如 NVIDIA Omniverse）、开放世界引擎（Unreal Engine 5）三位一体。",
+      "license": null,
+      "size_kb": 37,
+      "updated_at": "2026-07-01T23:00:07Z"
+    },
+    {
+      "name": "nebula-beats-3d-particle-visualizer",
+      "url": "https://github.com/lorryjovens-hub/nebula-beats-3d-particle-visualizer",
+      "branch": "main",
+      "commit": "335e96e2c2a346e3a1cd09b7607fe824f44b54f2",
+      "description": "A high-performance 3D music particle visualizer using React, Three.js with 100,000 particles, AI shape generation, gesture recognition, and P2P device connectivity.",
+      "license": null,
+      "size_kb": 59,
+      "updated_at": "2026-01-22T16:26:59Z"
+    },
+    {
+      "name": "nebula-beats-neural-music-interface",
+      "url": "https://github.com/lorryjovens-hub/nebula-beats-neural-music-interface",
+      "branch": "main",
+      "commit": "4902d2c008e7b16974045b22796234f7eaee1731",
+      "description": "A neural music interface with AI-powered 3D visualization, gesture control, and voice interaction",
+      "license": null,
+      "size_kb": 25,
+      "updated_at": "2026-01-21T19:12:24Z"
+    },
+    {
+      "name": "three-body-problem-simulator",
+      "url": "https://github.com/lorryjovens-hub/three-body-problem-simulator",
+      "branch": "main",
+      "commit": "20753e6cecee1458c06b82fb5ec640d2588cf188",
+      "description": "",
+      "license": "NOASSERTION",
+      "size_kb": 163,
+      "updated_at": "2026-07-23T18:39:28Z"
+    },
+    {
+      "name": "video-platform",
+      "url": "https://github.com/lorryjovens-hub/video-platform",
+      "branch": "master",
+      "commit": "5315e943323e1a1789ec1dbad7bf349a800b710e",
+      "description": "",
+      "license": null,
+      "size_kb": 99,
+      "updated_at": "2026-07-23T18:39:44Z"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "-ESP32-Cloudflare-Markdown-for-Agents-",
+      "url": "https://github.com/lorryjovens-hub/-ESP32-Cloudflare-Markdown-for-Agents-",
+      "default_branch": "main",
+      "size_kb": 0,
+      "error": "Cloning into '/var/folders/5g/y63l0hxs7_79g768q91qwlwh0000gp/T/lorryjovens-hub-repos-uwhiy7cx/-ESP32-Cloudflare-Markdown-for-Agents--79vuw0e0'...\nfatal: Remote branch main not found in upstream origin"
+    },
+    {
+      "name": "-FrameCraft-Pro-",
+      "url": "https://github.com/lorryjovens-hub/-FrameCraft-Pro-",
+      "default_branch": "main",
+      "size_kb": 0,
+      "error": "Cloning into '/var/folders/5g/y63l0hxs7_79g768q91qwlwh0000gp/T/lorryjovens-hub-repos-uwhiy7cx/-FrameCraft-Pro--28c5wg0m'...\nfatal: Remote branch main not found in upstream origin"
+    },
+    {
+      "name": "-WebForge-AI",
+      "url": "https://github.com/lorryjovens-hub/-WebForge-AI",
+      "default_branch": "main",
+      "size_kb": 0,
+      "error": "Cloning into '/var/folders/5g/y63l0hxs7_79g768q91qwlwh0000gp/T/lorryjovens-hub-repos-uwhiy7cx/-WebForge-AI-e_hb0dwr'...\nfatal: Remote branch main not found in upstream origin"
+    },
+    {
+      "name": "Claude-GUI--Electron",
+      "url": "https://github.com/lorryjovens-hub/Claude-GUI--Electron",
+      "default_branch": "main",
+      "size_kb": 0,
+      "error": "Cloning into '/var/folders/5g/y63l0hxs7_79g768q91qwlwh0000gp/T/lorryjovens-hub-repos-uwhiy7cx/Claude-GUI--Electron-leyo9x85'...\nfatal: Remote branch main not found in upstream origin"
+    },
+    {
+      "name": "claude-rust-APK",
+      "url": "https://github.com/lorryjovens-hub/claude-rust-APK",
+      "default_branch": "main",
+      "size_kb": 0,
+      "error": "Cloning into '/var/folders/5g/y63l0hxs7_79g768q91qwlwh0000gp/T/lorryjovens-hub-repos-uwhiy7cx/claude-rust-APK-p4q12df5'...\nfatal: Remote branch main not found in upstream origin"
+    },
+    {
+      "name": "LAB-TV",
+      "url": "https://github.com/lorryjovens-hub/LAB-TV",
+      "default_branch": "main",
+      "size_kb": 0,
+      "error": "Cloning into '/var/folders/5g/y63l0hxs7_79g768q91qwlwh0000gp/T/lorryjovens-hub-repos-uwhiy7cx/LAB-TV-oyy3_hsv'...\nfatal: Remote branch main not found in upstream origin"
+    },
+    {
+      "name": "movie-popcorn-release",
+      "url": "https://github.com/lorryjovens-hub/movie-popcorn-release",
+      "default_branch": "main",
+      "size_kb": 0,
+      "error": "Cloning into '/var/folders/5g/y63l0hxs7_79g768q91qwlwh0000gp/T/lorryjovens-hub-repos-uwhiy7cx/movie-popcorn-release-6gnrovvv'...\nfatal: Remote branch main not found in upstream origin"
+    }
+  ],
+  "forks_not_imported": [
+    {
+      "name": "1Panel",
+      "url": "https://github.com/lorryjovens-hub/1Panel",
+      "default_branch": "dev-v2",
+      "size_kb": 104399,
+      "upstream": null
+    },
+    {
+      "name": "Agent-Reach",
+      "url": "https://github.com/lorryjovens-hub/Agent-Reach",
+      "default_branch": "main",
+      "size_kb": 1800,
+      "upstream": null
+    },
+    {
+      "name": "agent-wechat",
+      "url": "https://github.com/lorryjovens-hub/agent-wechat",
+      "default_branch": "chore/specs-mvp",
+      "size_kb": 3032,
+      "upstream": null
+    },
+    {
+      "name": "ai-app-lab",
+      "url": "https://github.com/lorryjovens-hub/ai-app-lab",
+      "default_branch": "main",
+      "size_kb": 188057,
+      "upstream": null
+    },
+    {
+      "name": "ai-code-helper",
+      "url": "https://github.com/lorryjovens-hub/ai-code-helper",
+      "default_branch": "master",
+      "size_kb": 127,
+      "upstream": null
+    },
+    {
+      "name": "ai-website-cloner-template",
+      "url": "https://github.com/lorryjovens-hub/ai-website-cloner-template",
+      "default_branch": "master",
+      "size_kb": 860,
+      "upstream": null
+    },
+    {
+      "name": "arduino-esp32",
+      "url": "https://github.com/lorryjovens-hub/arduino-esp32",
+      "default_branch": "master",
+      "size_kb": 2197394,
+      "upstream": null
+    },
+    {
+      "name": "awesome",
+      "url": "https://github.com/lorryjovens-hub/awesome",
+      "default_branch": "main",
+      "size_kb": 1535,
+      "upstream": null
+    },
+    {
+      "name": "BaiLongma",
+      "url": "https://github.com/lorryjovens-hub/BaiLongma",
+      "default_branch": "main",
+      "size_kb": 97354,
+      "upstream": null
+    },
+    {
+      "name": "cc-switch",
+      "url": "https://github.com/lorryjovens-hub/cc-switch",
+      "default_branch": "main",
+      "size_kb": 37220,
+      "upstream": null
+    },
+    {
+      "name": "Chat2--API",
+      "url": "https://github.com/lorryjovens-hub/Chat2--API",
+      "default_branch": "main",
+      "size_kb": 7493,
+      "upstream": null
+    },
+    {
+      "name": "chat2api",
+      "url": "https://github.com/lorryjovens-hub/chat2api",
+      "default_branch": "main",
+      "size_kb": 3091,
+      "upstream": null
+    },
+    {
+      "name": "claude-code",
+      "url": "https://github.com/lorryjovens-hub/claude-code",
+      "default_branch": "main",
+      "size_kb": 27387,
+      "upstream": null
+    },
+    {
+      "name": "claude-code-rev",
+      "url": "https://github.com/lorryjovens-hub/claude-code-rev",
+      "default_branch": "main",
+      "size_kb": 9686,
+      "upstream": null
+    },
+    {
+      "name": "claude-desktop-app",
+      "url": "https://github.com/lorryjovens-hub/claude-desktop-app",
+      "default_branch": "main",
+      "size_kb": 22921,
+      "upstream": null
+    },
+    {
+      "name": "claw-code",
+      "url": "https://github.com/lorryjovens-hub/claw-code",
+      "default_branch": "main",
+      "size_kb": 14555,
+      "upstream": null
+    },
+    {
+      "name": "clawdbot",
+      "url": "https://github.com/lorryjovens-hub/clawdbot",
+      "default_branch": "main",
+      "size_kb": 136895,
+      "upstream": null
+    },
+    {
+      "name": "clawlink-triarch-1",
+      "url": "https://github.com/lorryjovens-hub/clawlink-triarch-1",
+      "default_branch": "main",
+      "size_kb": 6,
+      "upstream": null
+    },
+    {
+      "name": "ClawX",
+      "url": "https://github.com/lorryjovens-hub/ClawX",
+      "default_branch": "main",
+      "size_kb": 17070,
+      "upstream": null
+    },
+    {
+      "name": "CLI-Anything",
+      "url": "https://github.com/lorryjovens-hub/CLI-Anything",
+      "default_branch": "main",
+      "size_kb": 6587,
+      "upstream": null
+    },
+    {
+      "name": "coding-agent-template",
+      "url": "https://github.com/lorryjovens-hub/coding-agent-template",
+      "default_branch": "main",
+      "size_kb": 2151,
+      "upstream": null
+    },
+    {
+      "name": "crawl4ai",
+      "url": "https://github.com/lorryjovens-hub/crawl4ai",
+      "default_branch": "main",
+      "size_kb": 150520,
+      "upstream": null
+    },
+    {
+      "name": "CRMEB",
+      "url": "https://github.com/lorryjovens-hub/CRMEB",
+      "default_branch": "master",
+      "size_kb": 345985,
+      "upstream": null
+    },
+    {
+      "name": "cua",
+      "url": "https://github.com/lorryjovens-hub/cua",
+      "default_branch": "main",
+      "size_kb": 263285,
+      "upstream": null
+    },
+    {
+      "name": "dataease",
+      "url": "https://github.com/lorryjovens-hub/dataease",
+      "default_branch": "dev-v2",
+      "size_kb": 321779,
+      "upstream": null
+    },
+    {
+      "name": "DeepAudit",
+      "url": "https://github.com/lorryjovens-hub/DeepAudit",
+      "default_branch": "v3.0.0",
+      "size_kb": 72258,
+      "upstream": null
+    },
+    {
+      "name": "DeepSeek-V3",
+      "url": "https://github.com/lorryjovens-hub/DeepSeek-V3",
+      "default_branch": "main",
+      "size_kb": 1768,
+      "upstream": null
+    },
+    {
+      "name": "esp-claw",
+      "url": "https://github.com/lorryjovens-hub/esp-claw",
+      "default_branch": "master",
+      "size_kb": 15910,
+      "upstream": null
+    },
+    {
+      "name": "everything-claude-code",
+      "url": "https://github.com/lorryjovens-hub/everything-claude-code",
+      "default_branch": "main",
+      "size_kb": 26323,
+      "upstream": null
+    },
+    {
+      "name": "FinceptTerminal",
+      "url": "https://github.com/lorryjovens-hub/FinceptTerminal",
+      "default_branch": "main",
+      "size_kb": 786634,
+      "upstream": null
+    },
+    {
+      "name": "FireRed-OpenStoryline",
+      "url": "https://github.com/lorryjovens-hub/FireRed-OpenStoryline",
+      "default_branch": "main",
+      "size_kb": 421,
+      "upstream": null
+    },
+    {
+      "name": "frontend-slides",
+      "url": "https://github.com/lorryjovens-hub/frontend-slides",
+      "default_branch": "main",
+      "size_kb": 41,
+      "upstream": null
+    },
+    {
+      "name": "godot",
+      "url": "https://github.com/lorryjovens-hub/godot",
+      "default_branch": "master",
+      "size_kb": 1797034,
+      "upstream": null
+    },
+    {
+      "name": "grafana",
+      "url": "https://github.com/lorryjovens-hub/grafana",
+      "default_branch": "main",
+      "size_kb": 1897680,
+      "upstream": null
+    },
+    {
+      "name": "happy",
+      "url": "https://github.com/lorryjovens-hub/happy",
+      "default_branch": "main",
+      "size_kb": 193134,
+      "upstream": null
+    },
+    {
+      "name": "harness",
+      "url": "https://github.com/lorryjovens-hub/harness",
+      "default_branch": "main",
+      "size_kb": 58862,
+      "upstream": null
+    },
+    {
+      "name": "hermes-agent",
+      "url": "https://github.com/lorryjovens-hub/hermes-agent",
+      "default_branch": "main",
+      "size_kb": 314384,
+      "upstream": null
+    },
+    {
+      "name": "hermes-desktop",
+      "url": "https://github.com/lorryjovens-hub/hermes-desktop",
+      "default_branch": "main",
+      "size_kb": 32438,
+      "upstream": null
+    },
+    {
+      "name": "JKVideo",
+      "url": "https://github.com/lorryjovens-hub/JKVideo",
+      "default_branch": "master",
+      "size_kb": 6241,
+      "upstream": null
+    },
+    {
+      "name": "LightRAG",
+      "url": "https://github.com/lorryjovens-hub/LightRAG",
+      "default_branch": "main",
+      "size_kb": 87722,
+      "upstream": null
+    },
+    {
+      "name": "lingbot-world-v2",
+      "url": "https://github.com/lorryjovens-hub/lingbot-world-v2",
+      "default_branch": "main",
+      "size_kb": 9912,
+      "upstream": null
+    },
+    {
+      "name": "llama.cpp",
+      "url": "https://github.com/lorryjovens-hub/llama.cpp",
+      "default_branch": "master",
+      "size_kb": 403191,
+      "upstream": null
+    },
+    {
+      "name": "meilisearch",
+      "url": "https://github.com/lorryjovens-hub/meilisearch",
+      "default_branch": "main",
+      "size_kb": 89126,
+      "upstream": null
+    },
+    {
+      "name": "mimiclaw",
+      "url": "https://github.com/lorryjovens-hub/mimiclaw",
+      "default_branch": "main",
+      "size_kb": 4060,
+      "upstream": null
+    },
+    {
+      "name": "Mineradio",
+      "url": "https://github.com/lorryjovens-hub/Mineradio",
+      "default_branch": "main",
+      "size_kb": 5298,
+      "upstream": null
+    },
+    {
+      "name": "Mineradio-MacOS",
+      "url": "https://github.com/lorryjovens-hub/Mineradio-MacOS",
+      "default_branch": "main",
+      "size_kb": 4400,
+      "upstream": null
+    },
+    {
+      "name": "modly",
+      "url": "https://github.com/lorryjovens-hub/modly",
+      "default_branch": "main",
+      "size_kb": 23673,
+      "upstream": null
+    },
+    {
+      "name": "moltworker",
+      "url": "https://github.com/lorryjovens-hub/moltworker",
+      "default_branch": "main",
+      "size_kb": 154845,
+      "upstream": null
+    },
+    {
+      "name": "MOSS-Audio",
+      "url": "https://github.com/lorryjovens-hub/MOSS-Audio",
+      "default_branch": "main",
+      "size_kb": 32177,
+      "upstream": null
+    },
+    {
+      "name": "moyin-creator",
+      "url": "https://github.com/lorryjovens-hub/moyin-creator",
+      "default_branch": "main",
+      "size_kb": 13613,
+      "upstream": null
+    },
+    {
+      "name": "nature-skills",
+      "url": "https://github.com/lorryjovens-hub/nature-skills",
+      "default_branch": "main",
+      "size_kb": 27099,
+      "upstream": null
+    },
+    {
+      "name": "new-api",
+      "url": "https://github.com/lorryjovens-hub/new-api",
+      "default_branch": "main",
+      "size_kb": 38770,
+      "upstream": null
+    },
+    {
+      "name": "OmniRoute",
+      "url": "https://github.com/lorryjovens-hub/OmniRoute",
+      "default_branch": "release/v3.8.50",
+      "size_kb": 341434,
+      "upstream": null
+    },
+    {
+      "name": "OmniVoice",
+      "url": "https://github.com/lorryjovens-hub/OmniVoice",
+      "default_branch": "master",
+      "size_kb": 1168,
+      "upstream": null
+    },
+    {
+      "name": "one-api",
+      "url": "https://github.com/lorryjovens-hub/one-api",
+      "default_branch": "main",
+      "size_kb": 15963,
+      "upstream": null
+    },
+    {
+      "name": "open-design",
+      "url": "https://github.com/lorryjovens-hub/open-design",
+      "default_branch": "main",
+      "size_kb": 102550,
+      "upstream": null
+    },
+    {
+      "name": "open-lovable",
+      "url": "https://github.com/lorryjovens-hub/open-lovable",
+      "default_branch": "main",
+      "size_kb": 1336,
+      "upstream": null
+    },
+    {
+      "name": "Open-Sora",
+      "url": "https://github.com/lorryjovens-hub/Open-Sora",
+      "default_branch": "main",
+      "size_kb": 34694,
+      "upstream": null
+    },
+    {
+      "name": "OpenBB",
+      "url": "https://github.com/lorryjovens-hub/OpenBB",
+      "default_branch": "develop",
+      "size_kb": 2419097,
+      "upstream": null
+    },
+    {
+      "name": "OpenClaw--xiaozhi-MCP-Server",
+      "url": "https://github.com/lorryjovens-hub/OpenClaw--xiaozhi-MCP-Server",
+      "default_branch": "main",
+      "size_kb": 0,
+      "upstream": null
+    },
+    {
+      "name": "opencode",
+      "url": "https://github.com/lorryjovens-hub/opencode",
+      "default_branch": "dev",
+      "size_kb": 313350,
+      "upstream": null
+    },
+    {
+      "name": "opencode-antigravity-auth",
+      "url": "https://github.com/lorryjovens-hub/opencode-antigravity-auth",
+      "default_branch": "main",
+      "size_kb": 921,
+      "upstream": null
+    },
+    {
+      "name": "openhanako",
+      "url": "https://github.com/lorryjovens-hub/openhanako",
+      "default_branch": "main",
+      "size_kb": 169674,
+      "upstream": null
+    },
+    {
+      "name": "OpenHarness",
+      "url": "https://github.com/lorryjovens-hub/OpenHarness",
+      "default_branch": "main",
+      "size_kb": 10782,
+      "upstream": null
+    },
+    {
+      "name": "openhuman",
+      "url": "https://github.com/lorryjovens-hub/openhuman",
+      "default_branch": "main",
+      "size_kb": 83575,
+      "upstream": null
+    },
+    {
+      "name": "OpenMinis",
+      "url": "https://github.com/lorryjovens-hub/OpenMinis",
+      "default_branch": "main",
+      "size_kb": 34950,
+      "upstream": null
+    },
+    {
+      "name": "pretext",
+      "url": "https://github.com/lorryjovens-hub/pretext",
+      "default_branch": "main",
+      "size_kb": 1243,
+      "upstream": null
+    },
+    {
+      "name": "py-xiaozhi",
+      "url": "https://github.com/lorryjovens-hub/py-xiaozhi",
+      "default_branch": "main",
+      "size_kb": 75779,
+      "upstream": null
+    },
+    {
+      "name": "QuantDinger",
+      "url": "https://github.com/lorryjovens-hub/QuantDinger",
+      "default_branch": "main",
+      "size_kb": 64079,
+      "upstream": null
+    },
+    {
+      "name": "remotion",
+      "url": "https://github.com/lorryjovens-hub/remotion",
+      "default_branch": "main",
+      "size_kb": 3857051,
+      "upstream": null
+    },
+    {
+      "name": "ruflo",
+      "url": "https://github.com/lorryjovens-hub/ruflo",
+      "default_branch": "main",
+      "size_kb": 520231,
+      "upstream": null
+    },
+    {
+      "name": "sc-datav",
+      "url": "https://github.com/lorryjovens-hub/sc-datav",
+      "default_branch": "main",
+      "size_kb": 70402,
+      "upstream": null
+    },
+    {
+      "name": "skills",
+      "url": "https://github.com/lorryjovens-hub/skills",
+      "default_branch": "main",
+      "size_kb": 2913,
+      "upstream": null
+    },
+    {
+      "name": "SoulX-Podcast",
+      "url": "https://github.com/lorryjovens-hub/SoulX-Podcast",
+      "default_branch": "main",
+      "size_kb": 189639,
+      "upstream": null
+    },
+    {
+      "name": "Storyboard-Copilot",
+      "url": "https://github.com/lorryjovens-hub/Storyboard-Copilot",
+      "default_branch": "main",
+      "size_kb": 4150,
+      "upstream": null
+    },
+    {
+      "name": "tauri",
+      "url": "https://github.com/lorryjovens-hub/tauri",
+      "default_branch": "dev",
+      "size_kb": 102672,
+      "upstream": null
+    },
+    {
+      "name": "TRELLIS",
+      "url": "https://github.com/lorryjovens-hub/TRELLIS",
+      "default_branch": "main",
+      "size_kb": 1125587,
+      "upstream": null
+    },
+    {
+      "name": "twenty",
+      "url": "https://github.com/lorryjovens-hub/twenty",
+      "default_branch": "main",
+      "size_kb": 1183545,
+      "upstream": null
+    },
+    {
+      "name": "ui-ux-pro-max-skill",
+      "url": "https://github.com/lorryjovens-hub/ui-ux-pro-max-skill",
+      "default_branch": "main",
+      "size_kb": 3949,
+      "upstream": null
+    },
+    {
+      "name": "waoowaoo",
+      "url": "https://github.com/lorryjovens-hub/waoowaoo",
+      "default_branch": "main",
+      "size_kb": 16019,
+      "upstream": null
+    },
+    {
+      "name": "warp",
+      "url": "https://github.com/lorryjovens-hub/warp",
+      "default_branch": "master",
+      "size_kb": 150761,
+      "upstream": null
+    },
+    {
+      "name": "xiaozhi-android-client",
+      "url": "https://github.com/lorryjovens-hub/xiaozhi-android-client",
+      "default_branch": "main",
+      "size_kb": 4911,
+      "upstream": null
+    },
+    {
+      "name": "xiaozhi-esp32-server",
+      "url": "https://github.com/lorryjovens-hub/xiaozhi-esp32-server",
+      "default_branch": "main",
+      "size_kb": 191907,
+      "upstream": null
+    }
+  ],
+  "cleanup": {
+    "removed_directory_names": [
+      "node_modules",
+      "target",
+      "dist",
+      ".wasm-pack-cache",
+      ".next",
+      ".turbo",
+      "coverage",
+      ".vite",
+      ".cache"
+    ],
+    "removed_repository_paths": [
+      "claude-desktop-tauri/user"
+    ],
+    "note": "Regenerable dependency and build-output directories were removed after shallow cloning."
+  }
+}

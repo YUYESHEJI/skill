@@ -1,0 +1,101 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+temp/
+tmp/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+data/
+*.rdb
+
+# Backup files
+*.backup
+*.bak
+*~
+*.old
+
+# Large files and uploads
+uploads/
+extracted/
+cloned-sites/
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Test files
+test-results/
+playwright-report/
+cypress/videos/
+cypress/screenshots/
+
+# Misc
+.eslintcache
+.stylelintcache
+.parcel-cache
+
+# Local Netlify folder
+.netlify
+
+# Vercel
+.vercel
+
+# Turbo
+.turbo

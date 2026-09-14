@@ -1,0 +1,34 @@
+# Render 部署配置文件
+# 文档：https://render.com/docs/blueprint-spec
+
+services:
+  # Web 服务
+  - type: web
+    name: 影视天堂
+    env: node
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: node proxy-server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+    healthCheckPath: /api/proxy?url=https://api.apibdzy.com/api.php/provide/vod/?ac=list
+    disk:
+      name: cache
+      mountPath: /tmp/cache
+      sizeGB: 1
+
+# 可选：静态资源 CDN（如果使用分离部署）
+# staticSite:
+#   - name: 影视天堂 - 前端
+#     env: static
+#     buildCommand: ""
+#     staticPublishPath: .
+#     headers:
+#       - path: /*
+#         name: Cache-Control
+#         value: public, max-age=300

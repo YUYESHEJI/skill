@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0a0a0f;
+    color: #ffffff;
+  }
+  
+  ::selection {
+    background: rgba(249, 115, 22, 0.3);
+    color: white;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  
+  .glass-strong {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-rust-400 to-rust-600 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-rust {
+    @apply bg-gradient-to-r from-rust-400 via-orange-500 to-red-600 bg-clip-text text-transparent;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] hover:-translate-y-1;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 bg-rust-600 rounded-full font-semibold text-white relative overflow-hidden 
+           transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(234,88,12,0.5)]
+           active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 glass rounded-full font-semibold text-white hover:bg-white/10 
+           transition-all duration-300 active:scale-95;
+  }
+  
+  .nav-blur {
+    @apply bg-dark-900/80 backdrop-blur-xl;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+/* Cursor blink animation */
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

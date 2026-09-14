@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  username      String    @unique
+  password      String
+  avatarUrl     String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  projects      Project[]
+  assets        Asset[]
+  generationTasks GenerationTask[]
+
+  @@index([email])
+  @@index([createdAt])
+}
+
+model Project {
+  id            String    @id @default(uuid())
+  name          String
+  description   String?
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  theme         String    @default("temple")
+  config        Json?
+  status        String    @default("draft")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  assets        Asset[]
+  generationTasks GenerationTask[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Asset {
+  id            String    @id @default(uuid())
+  name          String
+  type          String
+  subtype       String?
+  url           String
+  thumbnailUrl  String?
+  metadata      Json?
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  projectId     String?
+  project       Project?  @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([userId])
+  @@index([projectId])
+  @@index([type])
+  @@index([createdAt])
+}
+
+model GenerationTask {
+  id            String    @id @default(uuid())
+  type          String
+  status        String    @default("pending")
+  progress      Int       @default(0)
+  config        Json
+  result        Json?
+  error         String?
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  projectId     String?
+  project       Project?  @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  completedAt   DateTime?
+
+  @@index([userId])
+  @@index([projectId])
+  @@index([status])
+  @@index([createdAt])
+}

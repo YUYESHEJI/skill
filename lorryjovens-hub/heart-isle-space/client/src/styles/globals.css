@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-warm-white: #FAF9F6;
+  --color-warm-gray: #F5F3EF;
+  --color-stone: #E8E4DE;
+  --color-ochre: #B8956B;
+  --color-deep-green: #4A5D54;
+  --color-charcoal: #2C2C2C;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-warm-white);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif-sc {
+  font-family: 'Noto Serif SC', serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-warm-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ochre);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-deep-green);
+}
+
+/* Custom Cursor */
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-ochre);
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-ochre);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.cursor-outline.hover {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(184, 149, 107, 0.1);
+  border-color: transparent;
+}
+
+/* Grain Texture Overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Glass Card Effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+/* Text Reveal Animation */
+.reveal-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.reveal-text span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s;
+}
+
+.reveal-text.active span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Magnetic Button */
+.magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 3D Tilt Card */
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.tilt-content {
+  transform: translateZ(50px);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Breathing Animation */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Organic Shape */
+.organic-shape {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph 8s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+/* Parallax Layers */
+.parallax-layer {
+  will-change: transform;
+}
+
+/* Smooth Image Reveal */
+.img-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.img-reveal.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Line Draw Animation */
+.line-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2s ease forwards;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-deep-green) 0%, var(--color-ochre) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-ochre);
+  color: white;
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--color-ochre);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

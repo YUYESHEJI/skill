@@ -1,0 +1,614 @@
+/* ── LAAP 认知舱（全高侧栏）布局 ─────────────────────────────── */
+
+/* 认知舱打开时，shell 三列：侧栏 | 主区 | 认知舱 */
+.shell {
+  --cockpit-width: 336px;
+}
+
+.shell--cockpit-open {
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr) var(--cockpit-width);
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.shell--cockpit-open.shell--sidebar-collapsed {
+  grid-template-columns: minmax(0, 1fr) var(--cockpit-width);
+  grid-template-rows: minmax(0, 1fr);
+}
+
+/* 显式分配列：主区始终占中间弹性列，认知舱固定占最右列（向下延伸整个可视高度）。
+   dock 在 DOM 中位于 main 之前，若不显式指定 grid-column 会被自动排到弹性列，
+   导致主区被挤压到认知舱列、最大化时顶栏过窄无法点击收起按钮。 */
+.shell--cockpit-open .main {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.shell--cockpit-open .laap-dock {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* 侧栏收起时 shell 只有两列：主区占弹性列，认知舱占最右列 */
+.shell--cockpit-open.shell--sidebar-collapsed .main {
+  grid-column: 1;
+}
+
+.shell--cockpit-open.shell--sidebar-collapsed .laap-dock {
+  grid-column: 2;
+}
+
+/* 认知舱本体：向下延伸至整个可视高度 */
+.laap-dock {
+  min-height: 0;
+  height: 100%;
+  align-self: stretch;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  background: var(--sidebar, #fbfbfd);
+  border-left: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.laap-dock__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  flex: none;
+}
+
+.laap-dock__collapse {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-sm, 6px);
+  color: var(--muted-soft);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.laap-dock__collapse:hover {
+  color: var(--muted-strong);
+  background: var(--line);
+  border-color: var(--line);
+}
+
+.laap-dock__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.laap-dock__dot--online {
+  background: #34d399;
+  box-shadow: 0 0 6px rgba(52, 211, 153, 0.7);
+}
+
+.laap-dock__dot--offline {
+  background: var(--muted-subtle);
+}
+
+.laap-dock__title {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--text, var(--muted-strong));
+  letter-spacing: 0.02em;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.laap-dock__status {
+  font-size: 10px;
+  color: var(--muted-soft);
+  flex: none;
+}
+
+.laap-dock__scroll {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 10px 12px 16px;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.laap-dock__section {
+  min-width: 0;
+}
+
+.laap-dock__section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.laap-dock__section-title {
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--muted-strong);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.laap-dock__subtitle {
+  font-size: 10px;
+  color: var(--muted-soft);
+  white-space: nowrap;
+}
+
+.laap-dock__hint {
+  font-size: 11px;
+  color: var(--muted-soft);
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+
+.laap-dock__mini-btn {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted-strong);
+  background: var(--surface-overlay, var(--surface));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 6px);
+  padding: 3px 9px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.laap-dock__mini-btn:hover:not(:disabled) {
+  background: var(--line);
+}
+
+.laap-dock__mini-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.laap-dock__mini-btn--primary {
+  color: #fff;
+  background: var(--accent, #4f46e5);
+  border-color: transparent;
+}
+
+.laap-dock__mini-btn--primary:hover:not(:disabled) {
+  background: var(--accent-strong, #4338ca);
+}
+
+/* ── 认知层状态 ─────────────────────────────── */
+
+.laap-cognition {
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  background: var(--surface-overlay);
+  border: 1px solid var(--line);
+}
+
+.laap-cognition--offline {
+  color: var(--muted-soft);
+  font-size: 12px;
+  padding: 8px 10px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+}
+
+.laap-cognition__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.laap-cognition__tag {
+  font-size: 11px;
+  color: var(--muted-soft);
+}
+
+.laap-cognition__value {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.laap-cognition__emotion {
+  font-size: 11px;
+  color: var(--muted-strong);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.laap-cognition__metric {
+  font-size: 10px;
+  font-weight: 650;
+  color: var(--muted-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.laap-cognition__vad {
+  font-variant-numeric: tabular-nums;
+}
+
+.laap-cognition__entropy {
+  margin-left: auto;
+  color: var(--muted-soft);
+}
+
+.laap-cognition__metrics {
+  display: grid;
+  gap: 3px;
+  margin: 4px 0 6px;
+}
+
+.laap-cognition__metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted-soft);
+}
+
+.laap-cognition__metric-row span:last-child {
+  font-weight: 600;
+  color: var(--muted-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.laap-needs {
+  display: grid;
+  gap: 3px;
+}
+
+.laap-need {
+  display: grid;
+  grid-template-columns: 44px 1fr 30px;
+  align-items: center;
+  gap: 6px;
+}
+
+.laap-need__label {
+  font-size: 11px;
+  color: var(--muted-soft);
+}
+
+.laap-need__track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line-strong);
+  overflow: hidden;
+}
+
+.laap-need__fill {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+}
+
+.laap-need__value {
+  font-size: 10px;
+  color: var(--muted-subtle);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.laap-memory {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 4px;
+}
+
+.laap-memory__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+  gap: 4px;
+  font-size: 11px;
+  color: var(--muted-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── RSI 自我进化 ─────────────────────────────── */
+
+.laap-rsi {
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  background: var(--surface-overlay);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+}
+
+.laap-rsi__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.laap-rsi__stat {
+  display: grid;
+  gap: 2px;
+  text-align: center;
+}
+
+.laap-rsi__stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.laap-rsi__stat-label {
+  font-size: 9px;
+  color: var(--muted-soft);
+  line-height: 1.2;
+}
+
+.laap-rsi__edge {
+  font-size: 11px;
+  color: var(--accent, #4f46e5);
+  background: color-mix(in srgb, var(--accent, #4f46e5) 10%, transparent);
+  border-radius: var(--radius-sm, 6px);
+  padding: 6px 8px;
+  line-height: 1.4;
+}
+
+.laap-rsi__history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 3px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.laap-rsi__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--muted-strong);
+}
+
+.laap-rsi__item-gen {
+  color: var(--muted-soft);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}
+
+.laap-rsi__item-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.laap-rsi__item-rev {
+  color: var(--muted-subtle);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}
+
+.laap-rsi__empty {
+  font-size: 11px;
+  color: var(--muted-soft);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── 原子组件库 ─────────────────────────────── */
+
+.laap-comp {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.laap-comp__item {
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  background: var(--surface-overlay);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 6px;
+}
+
+.laap-comp__body {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.laap-comp__name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 0;
+}
+
+.laap-comp__kind {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  border-radius: 4px;
+  flex: none;
+}
+
+.laap-comp__kind--cognitive {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.laap-comp__kind--code {
+  color: #0d9488;
+  background: rgba(13, 148, 136, 0.12);
+}
+
+.laap-comp__rev {
+  font-size: 10px;
+  color: var(--muted-subtle);
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+  flex: none;
+}
+
+.laap-comp__prompt {
+  font-size: 11px;
+  color: var(--muted-soft);
+  line-height: 1.4;
+}
+
+.laap-comp__compiled {
+  font-size: 10px;
+  color: #34d399;
+  font-weight: 600;
+}
+
+.laap-comp__actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.laap-comp__actions .laap-dock__mini-btn {
+  flex: 1;
+}
+
+/* ── 人格 / LAAPer ─────────────────────────────── */
+
+.laap-personas {
+  display: grid;
+  gap: 4px;
+}
+
+.laap-persona {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+  color: var(--muted-strong);
+  background: var(--surface-overlay);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 6px);
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.laap-persona:hover:not(:disabled) {
+  background: var(--line);
+}
+
+.laap-persona--active {
+  border-color: var(--accent, #4f46e5);
+  color: var(--text);
+}
+
+.laap-persona:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.laap-persona__mark {
+  flex: none;
+  color: var(--muted-subtle);
+}
+
+.laap-persona--active .laap-persona__mark {
+  color: var(--accent, #4f46e5);
+}
+
+.laap-persona__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.laap-persona__current {
+  font-size: 9px;
+  color: var(--muted-soft);
+  flex: none;
+}
+
+.laap-create {
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.laap-create__input,
+.laap-create__textarea {
+  font-size: 12px;
+  color: var(--text);
+  background: var(--field, var(--surface-overlay));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 6px);
+  padding: 6px 8px;
+  resize: vertical;
+}
+
+.laap-create__textarea {
+  min-height: 56px;
+}
+
+.laap-create__error {
+  font-size: 11px;
+  color: #e11d48;
+}
+
+.laap-create__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.laap-create__button {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted-strong);
+  background: var(--surface-overlay);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 6px);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.laap-create__button--primary {
+  color: #fff;
+  background: var(--accent, #4f46e5);
+  border-color: transparent;
+}
+
+.laap-create__button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}

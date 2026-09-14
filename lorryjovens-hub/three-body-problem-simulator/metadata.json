@@ -1,0 +1,5 @@
+{
+  "name": "Three-Body Problem Simulator",
+  "description": "A 3D simulation of the three-body problem using WebGL, Three.js, and a Runge-Kutta (RK4) numerical integrator.",
+  "requestFramePermissions": []
+}
